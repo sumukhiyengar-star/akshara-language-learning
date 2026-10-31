@@ -1,38 +1,77 @@
+function makeDictionary(entries) {
+  return entries.map(([native, roman, meaning]) => ({ native, roman, meaning }));
+}
+
 const languages = {
   kannada: {
-    name: 'Kannada', symbol: 'ಕ', vowels: [['ಅ', 'a'], ['ಆ', 'ā'], ['ಇ', 'i']], words: [
+    name: 'Kannada', symbol: 'ಕ', words: [
       { native: 'ನೀರು', roman: 'nīru', meaning: 'water' },
       { native: 'ಮನೆ', roman: 'mane', meaning: 'house' },
       { native: 'ನಮಸ್ಕಾರ', roman: 'namaskāra', meaning: 'hello / greetings' }
-    ], sentence: { english: 'I drink water.', parts: ['ನಾನು', 'ನೀರು', 'ಕುಡಿಯುತ್ತೇನೆ'], roman: 'nānu nīru kuḍiyuttēne' }, phrase: { native: 'ನಮಸ್ಕಾರ', roman: 'namaskāra', meaning: 'Hello / greetings' }
+    ], alphabet: [
+      { label: 'Independent vowels', items: [['ಅ', 'a'], ['ಆ', 'ā'], ['ಇ', 'i'], ['ಈ', 'ī'], ['ಉ', 'u'], ['ಊ', 'ū'], ['ಋ', 'ṛ'], ['ೠ', 'ṝ'], ['ಌ', 'ḷ'], ['ೡ', 'ḹ'], ['ಎ', 'e'], ['ಏ', 'ē'], ['ಐ', 'ai'], ['ಒ', 'o'], ['ಓ', 'ō'], ['ಔ', 'au']] },
+      { label: 'Consonants', items: [['ಕ', 'ka'], ['ಖ', 'kha'], ['ಗ', 'ga'], ['ಘ', 'gha'], ['ಙ', 'ṅa'], ['ಚ', 'ca'], ['ಛ', 'cha'], ['ಜ', 'ja'], ['ಝ', 'jha'], ['ಞ', 'ña'], ['ಟ', 'ṭa'], ['ಠ', 'ṭha'], ['ಡ', 'ḍa'], ['ಢ', 'ḍha'], ['ಣ', 'ṇa'], ['ತ', 'ta'], ['ಥ', 'tha'], ['ದ', 'da'], ['ಧ', 'dha'], ['ನ', 'na'], ['ಪ', 'pa'], ['ಫ', 'pha'], ['ಬ', 'ba'], ['ಭ', 'bha'], ['ಮ', 'ma'], ['ಯ', 'ya'], ['ರ', 'ra'], ['ಲ', 'la'], ['ವ', 'va'], ['ಶ', 'śa'], ['ಷ', 'ṣa'], ['ಸ', 'sa'], ['ಹ', 'ha'], ['ಳ', 'ḷa']] },
+      { label: 'Vowel signs', items: [['ಾ', 'ā'], ['ಿ', 'i'], ['ೀ', 'ī'], ['ು', 'u'], ['ೂ', 'ū'], ['ೃ', 'ṛ'], ['ೄ', 'ṝ'], ['ೢ', 'ḷ'], ['ೣ', 'ḹ'], ['ೆ', 'e'], ['ೇ', 'ē'], ['ೈ', 'ai'], ['ೊ', 'o'], ['ೋ', 'ō'], ['ೌ', 'au'], ['್', 'virāma']] },
+      { label: 'Other signs and common conjuncts', items: [['ಂ', 'anusvāra'], ['ಃ', 'visarga'], ['ೞ', 'ḻa (archaic)'], ['ಕ್ಷ', 'kṣa'], ['ಜ್ಞ', 'jña']] }
+    ], dictionary: makeDictionary([
+      ['ನೀರು', 'nīru', 'water'], ['ಮನೆ', 'mane', 'house / home'], ['ಅಮ್ಮ', 'amma', 'mother'], ['ಅಪ್ಪ', 'appa', 'father'], ['ಪುಸ್ತಕ', 'pustaka', 'book'], ['ಶಾಲೆ', 'śāle', 'school'], ['ಊಟ', 'ūṭa', 'food / meal'], ['ಹಣ್ಣು', 'haṇṇu', 'fruit'], ['ಮಗು', 'magu', 'child'], ['ಸ್ನೇಹಿತ', 'snēhita', 'friend'], ['ಸಮಯ', 'samaya', 'time'], ['ದಿನ', 'dina', 'day'], ['ರಾತ್ರಿ', 'rātri', 'night'], ['ಹೂವು', 'hūvu', 'flower'], ['ಸೂರ್ಯ', 'sūrya', 'sun'], ['ಚಂದ್ರ', 'candra', 'moon'], ['ನಾಯಿ', 'nāyi', 'dog'], ['ಬೆಕ್ಕು', 'bekku', 'cat'], ['ಹೌದು', 'haudu', 'yes'], ['ಇಲ್ಲ', 'illa', 'no'], ['ದಯವಿಟ್ಟು', 'dayaviṭṭu', 'please'], ['ಧನ್ಯವಾದಗಳು', 'dhanyavādagaḷu', 'thank you'], ['ಬನ್ನಿ', 'banni', 'please come'], ['ಹೋಗಿ', 'hōgi', 'go'], ['ತಿನ್ನು', 'tinnu', 'eat'], ['ಓದು', 'ōdu', 'read / study']
+    ]), sentence: { english: 'I drink water.', parts: ['ನಾನು', 'ನೀರು', 'ಕುಡಿಯುತ್ತೇನೆ'], roman: 'nānu nīru kuḍiyuttēne' }, phrase: { native: 'ನಮಸ್ಕಾರ', roman: 'namaskāra', meaning: 'Hello / greetings' }
   },
   sanskrit: {
-    name: 'Sanskrit', symbol: 'अ', vowels: [['अ', 'a'], ['आ', 'ā'], ['इ', 'i']], words: [
+    name: 'Sanskrit', symbol: 'अ', words: [
       { native: 'जलम्', roman: 'jalam', meaning: 'water' },
       { native: 'गृहम्', roman: 'gṛham', meaning: 'house' },
       { native: 'नमस्ते', roman: 'namaste', meaning: 'hello / greetings' }
-    ], sentence: { english: 'I drink water.', parts: ['अहं', 'जलं', 'पिबामि'], roman: 'ahaṃ jalaṃ pibāmi' }, phrase: { native: 'नमस्ते', roman: 'namaste', meaning: 'Hello / greetings' }
+    ], alphabet: [
+      { label: 'Independent vowels', items: [['अ', 'a'], ['आ', 'ā'], ['इ', 'i'], ['ई', 'ī'], ['उ', 'u'], ['ऊ', 'ū'], ['ऋ', 'ṛ'], ['ॠ', 'ṝ'], ['ऌ', 'ḷ'], ['ॡ', 'ḹ'], ['ए', 'e'], ['ऐ', 'ai'], ['ओ', 'o'], ['औ', 'au']] },
+      { label: 'Consonants', items: [['क', 'ka'], ['ख', 'kha'], ['ग', 'ga'], ['घ', 'gha'], ['ङ', 'ṅa'], ['च', 'ca'], ['छ', 'cha'], ['ज', 'ja'], ['झ', 'jha'], ['ञ', 'ña'], ['ट', 'ṭa'], ['ठ', 'ṭha'], ['ड', 'ḍa'], ['ढ', 'ḍha'], ['ण', 'ṇa'], ['त', 'ta'], ['थ', 'tha'], ['द', 'da'], ['ध', 'dha'], ['न', 'na'], ['प', 'pa'], ['फ', 'pha'], ['ब', 'ba'], ['भ', 'bha'], ['म', 'ma'], ['य', 'ya'], ['र', 'ra'], ['ल', 'la'], ['व', 'va'], ['श', 'śa'], ['ष', 'ṣa'], ['स', 'sa'], ['ह', 'ha']] },
+      { label: 'Vowel signs', items: [['ा', 'ā'], ['ि', 'i'], ['ी', 'ī'], ['ु', 'u'], ['ू', 'ū'], ['ृ', 'ṛ'], ['ॄ', 'ṝ'], ['ॢ', 'ḷ'], ['ॣ', 'ḹ'], ['े', 'e'], ['ै', 'ai'], ['ो', 'o'], ['ौ', 'au'], ['्', 'virāma']] },
+      { label: 'Other signs and common conjuncts', items: [['ं', 'anusvāra'], ['ः', 'visarga'], ['क्ष', 'kṣa'], ['त्र', 'tra'], ['ज्ञ', 'jña']] }
+    ], dictionary: makeDictionary([
+      ['जलम्', 'jalam', 'water'], ['गृहम्', 'gṛham', 'house / home'], ['माता', 'mātā', 'mother'], ['पिता', 'pitā', 'father'], ['पुस्तकम्', 'pustakam', 'book'], ['विद्यालयः', 'vidyālayaḥ', 'school'], ['भोजनम्', 'bhojanam', 'food / meal'], ['फलम्', 'phalam', 'fruit'], ['बालकः', 'bālakaḥ', 'child / boy'], ['मित्रम्', 'mitram', 'friend'], ['समयः', 'samayaḥ', 'time'], ['दिनम्', 'dinam', 'day'], ['रात्रिः', 'rātriḥ', 'night'], ['पुष्पम्', 'puṣpam', 'flower'], ['सूर्यः', 'sūryaḥ', 'sun'], ['चन्द्रः', 'candraḥ', 'moon'], ['श्वानः', 'śvānaḥ', 'dog'], ['मार्जारः', 'mārjāraḥ', 'cat'], ['आम्', 'ām', 'yes'], ['न', 'na', 'no'], ['कृपया', 'kṛpayā', 'please'], ['धन्यवादः', 'dhanyavādaḥ', 'thank you'], ['आगच्छति', 'āgacchati', 'comes'], ['गच्छति', 'gacchati', 'goes'], ['खादति', 'khādati', 'eats'], ['पठति', 'paṭhati', 'reads / studies']
+    ]), sentence: { english: 'I drink water.', parts: ['अहं', 'जलं', 'पिबामि'], roman: 'ahaṃ jalaṃ pibāmi' }, phrase: { native: 'नमस्ते', roman: 'namaste', meaning: 'Hello / greetings' }
   },
   tamil: {
-    name: 'Tamil', symbol: 'அ', vowels: [['அ', 'a'], ['ஆ', 'ā'], ['இ', 'i']], words: [
+    name: 'Tamil', symbol: 'அ', words: [
       { native: 'தண்ணீர்', roman: 'taṇṇīr', meaning: 'water' },
       { native: 'வீடு', roman: 'vīṭu', meaning: 'house / home' },
       { native: 'வணக்கம்', roman: 'vaṇakkam', meaning: 'hello / greetings' }
-    ], sentence: { english: 'I drink water.', parts: ['நான்', 'தண்ணீர்', 'குடிக்கிறேன்'], roman: 'nāṉ taṇṇīr kuṭikkiṟēṉ' }, phrase: { native: 'வணக்கம்', roman: 'vaṇakkam', meaning: 'Hello / greetings' }
+    ], alphabet: [
+      { label: 'Vowels', items: [['அ', 'a'], ['ஆ', 'ā'], ['இ', 'i'], ['ஈ', 'ī'], ['உ', 'u'], ['ஊ', 'ū'], ['எ', 'e'], ['ஏ', 'ē'], ['ஐ', 'ai'], ['ஒ', 'o'], ['ஓ', 'ō'], ['ஔ', 'au']] },
+      { label: 'Consonants', items: [['க', 'ka'], ['ங', 'ṅa'], ['ச', 'ca'], ['ஞ', 'ña'], ['ட', 'ṭa'], ['ண', 'ṇa'], ['த', 'ta'], ['ந', 'na'], ['ப', 'pa'], ['ம', 'ma'], ['ய', 'ya'], ['ர', 'ra'], ['ல', 'la'], ['வ', 'va'], ['ழ', 'ḻa'], ['ள', 'ḷa'], ['ற', 'ṟa'], ['ன', 'ṉa']] },
+      { label: 'Grantha letters', items: [['ஜ', 'ja'], ['ஶ', 'śa'], ['ஷ', 'ṣa'], ['ஸ', 'sa'], ['ஹ', 'ha']] },
+      { label: 'Vowel signs and other signs', items: [['ா', 'ā'], ['ி', 'i'], ['ீ', 'ī'], ['ு', 'u'], ['ூ', 'ū'], ['ெ', 'e'], ['ே', 'ē'], ['ை', 'ai'], ['ொ', 'o'], ['ோ', 'ō'], ['ௌ', 'au'], ['்', 'puḷḷi'], ['ஃ', 'āytam']] }
+    ], dictionary: makeDictionary([
+      ['தண்ணீர்', 'taṇṇīr', 'water'], ['வீடு', 'vīṭu', 'house / home'], ['அம்மா', 'ammā', 'mother'], ['அப்பா', 'appā', 'father'], ['புத்தகம்', 'puttakam', 'book'], ['பள்ளி', 'paḷḷi', 'school'], ['சாப்பாடு', 'sāppāṭu', 'food / meal'], ['பழம்', 'paḻam', 'fruit'], ['குழந்தை', 'kuḻantai', 'child'], ['நண்பர்', 'naṇpar', 'friend'], ['நேரம்', 'nēram', 'time'], ['நாள்', 'nāḷ', 'day'], ['இரவு', 'iravu', 'night'], ['மலர்', 'malar', 'flower'], ['சூரியன்', 'sūriyaṉ', 'sun'], ['நிலா', 'nilā', 'moon'], ['நாய்', 'nāy', 'dog'], ['பூனை', 'pūṉai', 'cat'], ['ஆம்', 'ām', 'yes'], ['இல்லை', 'illai', 'no'], ['தயவுசெய்து', 'tayavuceytu', 'please'], ['நன்றி', 'naṉṟi', 'thank you'], ['வா', 'vā', 'come'], ['போ', 'pō', 'go'], ['சாப்பிடு', 'sāppiṭu', 'eat'], ['படி', 'paṭi', 'read / study']
+    ]), sentence: { english: 'I drink water.', parts: ['நான்', 'தண்ணீர்', 'குடிக்கிறேன்'], roman: 'nāṉ taṇṇīr kuṭikkiṟēṉ' }, phrase: { native: 'வணக்கம்', roman: 'vaṇakkam', meaning: 'Hello / greetings' }
   },
   telugu: {
-    name: 'Telugu', symbol: 'అ', vowels: [['అ', 'a'], ['ఆ', 'ā'], ['ఇ', 'i']], words: [
+    name: 'Telugu', symbol: 'అ', words: [
       { native: 'నీరు', roman: 'nīru', meaning: 'water' },
       { native: 'ఇల్లు', roman: 'illu', meaning: 'house / home' },
       { native: 'నమస్కారం', roman: 'namaskāram', meaning: 'hello / greetings' }
-    ], sentence: { english: 'I drink water.', parts: ['నేను', 'నీరు', 'తాగుతాను'], roman: 'nēnu nīru tāgutānu' }, phrase: { native: 'నమస్కారం', roman: 'namaskāram', meaning: 'Hello / greetings' }
+    ], alphabet: [
+      { label: 'Independent vowels', items: [['అ', 'a'], ['ఆ', 'ā'], ['ఇ', 'i'], ['ఈ', 'ī'], ['ఉ', 'u'], ['ఊ', 'ū'], ['ఋ', 'ṛ'], ['ౠ', 'ṝ'], ['ఌ', 'ḷ'], ['ౡ', 'ḹ'], ['ఎ', 'e'], ['ఏ', 'ē'], ['ఐ', 'ai'], ['ఒ', 'o'], ['ఓ', 'ō'], ['ఔ', 'au']] },
+      { label: 'Consonants', items: [['క', 'ka'], ['ఖ', 'kha'], ['గ', 'ga'], ['ఘ', 'gha'], ['ఙ', 'ṅa'], ['చ', 'ca'], ['ఛ', 'cha'], ['జ', 'ja'], ['ఝ', 'jha'], ['ఞ', 'ña'], ['ట', 'ṭa'], ['ఠ', 'ṭha'], ['డ', 'ḍa'], ['ఢ', 'ḍha'], ['ణ', 'ṇa'], ['త', 'ta'], ['థ', 'tha'], ['ద', 'da'], ['ధ', 'dha'], ['న', 'na'], ['ప', 'pa'], ['ఫ', 'pha'], ['బ', 'ba'], ['భ', 'bha'], ['మ', 'ma'], ['య', 'ya'], ['ర', 'ra'], ['ల', 'la'], ['వ', 'va'], ['శ', 'śa'], ['ష', 'ṣa'], ['స', 'sa'], ['హ', 'ha'], ['ళ', 'ḷa'], ['ఱ', 'ṟa']] },
+      { label: 'Vowel signs', items: [['ా', 'ā'], ['ి', 'i'], ['ీ', 'ī'], ['ు', 'u'], ['ూ', 'ū'], ['ృ', 'ṛ'], ['ౄ', 'ṝ'], ['ౢ', 'ḷ'], ['ౣ', 'ḹ'], ['ె', 'e'], ['ే', 'ē'], ['ై', 'ai'], ['ొ', 'o'], ['ో', 'ō'], ['ౌ', 'au'], ['్', 'virāma']] },
+      { label: 'Other signs and common conjuncts', items: [['ం', 'anusvāra'], ['ః', 'visarga'], ['క్ష', 'kṣa'], ['జ్ఞ', 'jña']] }
+    ], dictionary: makeDictionary([
+      ['నీరు', 'nīru', 'water'], ['ఇల్లు', 'illu', 'house / home'], ['అమ్మ', 'amma', 'mother'], ['నాన్న', 'nānna', 'father'], ['పుస్తకం', 'pustakaṃ', 'book'], ['పాఠశాల', 'pāṭhaśāla', 'school'], ['భోజనం', 'bhōjanaṃ', 'food / meal'], ['పండు', 'paṇḍu', 'fruit'], ['పిల్ల', 'pilla', 'child'], ['స్నేహితుడు', 'snēhituḍu', 'friend'], ['సమయం', 'samayaṃ', 'time'], ['రోజు', 'rōju', 'day'], ['రాత్రి', 'rātri', 'night'], ['పువ్వు', 'puvvu', 'flower'], ['సూర్యుడు', 'sūryuḍu', 'sun'], ['చంద్రుడు', 'candruḍu', 'moon'], ['కుక్క', 'kukka', 'dog'], ['పిల్లి', 'pilli', 'cat'], ['అవును', 'avunu', 'yes'], ['కాదు', 'kādu', 'no'], ['దయచేసి', 'dayacēsi', 'please'], ['ధన్యవాదాలు', 'dhanyavādālu', 'thank you'], ['రా', 'rā', 'come'], ['వెళ్లు', 'veḷḷu', 'go'], ['తిను', 'tinu', 'eat'], ['చదువు', 'caduvu', 'read / study']
+    ]), sentence: { english: 'I drink water.', parts: ['నేను', 'నీరు', 'తాగుతాను'], roman: 'nēnu nīru tāgutānu' }, phrase: { native: 'నమస్కారం', roman: 'namaskāram', meaning: 'Hello / greetings' }
   },
   malayalam: {
-    name: 'Malayalam', symbol: 'അ', vowels: [['അ', 'a'], ['ആ', 'ā'], ['ഇ', 'i']], words: [
+    name: 'Malayalam', symbol: 'അ', words: [
       { native: 'വെള്ളം', roman: 'veḷḷam', meaning: 'water' },
       { native: 'വീട്', roman: 'vīṭŭ', meaning: 'house / home' },
       { native: 'നമസ്കാരം', roman: 'namaskāram', meaning: 'hello / greetings' }
-    ], sentence: { english: 'I drink water.', parts: ['ഞാൻ', 'വെള്ളം', 'കുടിക്കുന്നു'], roman: 'ñān veḷḷam kuṭikkunnu' }, phrase: { native: 'നമസ്കാരം', roman: 'namaskāram', meaning: 'Hello / greetings' }
+    ], alphabet: [
+      { label: 'Independent vowels', items: [['അ', 'a'], ['ആ', 'ā'], ['ഇ', 'i'], ['ഈ', 'ī'], ['ഉ', 'u'], ['ഊ', 'ū'], ['ഋ', 'ṛ'], ['ൠ', 'ṝ'], ['ഌ', 'ḷ'], ['ൡ', 'ḹ'], ['എ', 'e'], ['ഏ', 'ē'], ['ഐ', 'ai'], ['ഒ', 'o'], ['ഓ', 'ō'], ['ഔ', 'au']] },
+      { label: 'Consonants', items: [['ക', 'ka'], ['ഖ', 'kha'], ['ഗ', 'ga'], ['ഘ', 'gha'], ['ങ', 'ṅa'], ['ച', 'ca'], ['ഛ', 'cha'], ['ജ', 'ja'], ['ഝ', 'jha'], ['ഞ', 'ña'], ['ട', 'ṭa'], ['ഠ', 'ṭha'], ['ഡ', 'ḍa'], ['ഢ', 'ḍha'], ['ണ', 'ṇa'], ['ത', 'ta'], ['ഥ', 'tha'], ['ദ', 'da'], ['ധ', 'dha'], ['ന', 'na'], ['പ', 'pa'], ['ഫ', 'pha'], ['ബ', 'ba'], ['ഭ', 'bha'], ['മ', 'ma'], ['യ', 'ya'], ['ര', 'ra'], ['ല', 'la'], ['വ', 'va'], ['ശ', 'śa'], ['ഷ', 'ṣa'], ['സ', 'sa'], ['ഹ', 'ha'], ['ള', 'ḷa'], ['ഴ', 'ḻa'], ['റ', 'ṟa']] },
+      { label: 'Vowel signs', items: [['ാ', 'ā'], ['ി', 'i'], ['ീ', 'ī'], ['ു', 'u'], ['ൂ', 'ū'], ['ൃ', 'ṛ'], ['ൄ', 'ṝ'], ['ൢ', 'ḷ'], ['ൣ', 'ḹ'], ['െ', 'e'], ['േ', 'ē'], ['ൈ', 'ai'], ['ൊ', 'o'], ['ോ', 'ō'], ['ൌ', 'au'], ['്', 'virāma']] },
+      { label: 'Other signs and chillu letters', items: [['ം', 'anusvāra'], ['ഃ', 'visarga'], ['ൺ', 'ṇ'], ['ൻ', 'n'], ['ർ', 'r'], ['ൽ', 'l'], ['ൾ', 'ḷ'], ['ൿ', 'k']] }
+    ], dictionary: makeDictionary([
+      ['വെള്ളം', 'veḷḷam', 'water'], ['വീട്', 'vīṭŭ', 'house / home'], ['അമ്മ', 'amma', 'mother'], ['അച്ഛൻ', 'acchan', 'father'], ['പുസ്തകം', 'pustakaṁ', 'book'], ['വിദ്യാലയം', 'vidyālayam', 'school'], ['ഭക്ഷണം', 'bhakṣaṇaṁ', 'food / meal'], ['പഴം', 'paḻaṁ', 'fruit'], ['കുട്ടി', 'kuṭṭi', 'child'], ['സുഹൃത്ത്', 'suhr̥ttŭ', 'friend'], ['സമയം', 'samayaṁ', 'time'], ['ദിവസം', 'divasam', 'day'], ['രാത്രി', 'rātri', 'night'], ['പൂവ്', 'pūvŭ', 'flower'], ['സൂര്യൻ', 'sūryan', 'sun'], ['ചന്ദ്രൻ', 'candran', 'moon'], ['നായ', 'nāya', 'dog'], ['പൂച്ച', 'pūcca', 'cat'], ['അതെ', 'athe', 'yes'], ['ഇല്ല', 'illa', 'no'], ['ദയവായി', 'dayavāyi', 'please'], ['നന്ദി', 'nandi', 'thank you'], ['വരൂ', 'varū', 'come (polite)'], ['പോകൂ', 'pōkū', 'go (polite)'], ['കഴിക്കുക', 'kaḻikkuka', 'eat'], ['വായിക്കുക', 'vāyikkuka', 'read / study']
+    ]), sentence: { english: 'I drink water.', parts: ['ഞാൻ', 'വെള്ളം', 'കുടിക്കുന്നു'], roman: 'ñān veḷḷam kuṭikkunnu' }, phrase: { native: 'നമസ്കാരം', roman: 'namaskāram', meaning: 'Hello / greetings' }
   }
 };
 
@@ -57,10 +96,10 @@ const byId = (id) => document.getElementById(id);
 const languageData = () => languages[state.language];
 const modeLabels = { alphabet: 'LETTER STUDIO', words: 'WORD MATCH', sentences: 'SENTENCE BUILDER' };
 const alphabetChoices = ['ಅ', 'ಆ', 'ಇ', 'ಈ', 'ಉ', 'ಊ'];
-const transliterations = { a: 'a', 'ā': 'long a', i: 'i' };
 
 function init() {
   buildLanguageList();
+  buildDictionaryLanguageOptions();
   bindControls();
   setupPwa();
   renderAll();
@@ -99,8 +138,17 @@ function buildLanguageList() {
   list.querySelectorAll('[data-language]').forEach((button) => button.addEventListener('click', () => selectLanguage(button.dataset.language)));
 }
 
+function buildDictionaryLanguageOptions() {
+  byId('dictionary-language').innerHTML = Object.entries(languages).map(([key, language]) => `<option value="${key}">${language.symbol} ${language.name}</option>`).join('');
+}
+
 function bindControls() {
   document.querySelectorAll('[data-mode]').forEach((tab) => tab.addEventListener('click', () => selectMode(tab.dataset.mode)));
+  byId('open-dictionary').addEventListener('click', openDictionary);
+  byId('open-dictionary-secondary').addEventListener('click', openDictionary);
+  byId('dictionary-language').addEventListener('change', renderDictionary);
+  byId('dictionary-search').addEventListener('input', renderDictionary);
+  document.querySelectorAll('[data-close-dialog]').forEach((button) => button.addEventListener('click', () => byId(button.dataset.closeDialog).close()));
   byId('course-switch').addEventListener('click', () => {
     const keys = Object.keys(languages);
     const next = keys[(keys.indexOf(state.language) + 1) % keys.length];
@@ -109,6 +157,11 @@ function bindControls() {
   });
   byId('speak-phrase').addEventListener('click', speakPhrase);
   document.querySelectorAll('.nav-link').forEach((button) => button.addEventListener('click', () => {
+    if (button.dataset.view === 'words') {
+      openDictionary();
+      document.querySelectorAll('.nav-link').forEach((nav) => nav.classList.toggle('active', nav === button));
+      return;
+    }
     const mode = button.dataset.view === 'script' ? 'alphabet' : button.dataset.view === 'words' ? 'words' : 'alphabet';
     selectMode(mode);
     document.querySelectorAll('.nav-link').forEach((nav) => nav.classList.toggle('active', nav === button));
@@ -159,25 +212,76 @@ function renderExercise() {
   byId('feedback').hidden = true;
   byId('feedback').className = 'feedback';
   byId('exercise-type-label').textContent = modeLabels[state.mode];
-  byId('question-count').textContent = `${state.index + 1} / 3`;
-  byId('exercise-progress-bar').style.width = `${((state.index + 1) / 3) * 100}%`;
+  const count = state.mode === 'alphabet' ? alphabetPracticeEntries().length : 3;
+  byId('question-count').textContent = `${state.index + 1} / ${count}`;
+  byId('exercise-progress-bar').style.width = `${((state.index + 1) / count) * 100}%`;
   byId('lesson-title').textContent = state.mode === 'alphabet' ? 'Start with the sounds' : state.mode === 'words' ? 'Grow your word bank' : 'Put the words together';
   byId('exercise-content').innerHTML = state.mode === 'alphabet' ? alphabetExercise() : state.mode === 'words' ? wordExercise() : sentenceExercise();
   renderActions();
-  if (state.mode === 'alphabet') setupCanvas();
+  if (state.mode === 'alphabet') {
+    setupCanvas();
+    byId('open-alphabet').addEventListener('click', openAlphabetDialog);
+  }
   if (state.mode === 'words') bindChoices();
   if (state.mode === 'sentences') bindTiles();
 }
 
 function alphabetExercise() {
-  const [glyph, sound] = languageData().vowels[state.index];
-  return `<div class="prompt-label">TRACE THE CHARACTER</div>
-    <h3 class="prompt-title">Write the letter for <span lang="en">${transliterations[sound] || sound}</span>.</h3>
+  const entry = alphabetPracticeEntries()[state.index];
+  return `<div class="prompt-label">TRACE THE CHARACTER · ${entry.group.toUpperCase()}</div>
+    <h3 class="prompt-title">Practice <span lang="${document.documentElement.lang}">${entry.glyph}</span> <span lang="en">(${entry.roman})</span>.</h3>
     <p class="prompt-hint">Follow the guide, then check your practice.</p>
     <div class="script-practice">
-      <div><div class="writing-pad"><span class="pad-caption">YOUR STROKES</span><canvas id="writing-canvas" aria-label="Practice writing the character ${glyph}" lang="${document.documentElement.lang}"></canvas></div><div class="pad-tools"><span>Use your finger or mouse</span><button class="text-button" id="clear-pad">Clear strokes</button></div></div>
-      <div class="glyph-model"><span lang="${document.documentElement.lang}">${glyph}</span><small>LETTER GUIDE</small></div>
+      <div><div class="writing-pad"><span class="pad-caption">YOUR STROKES</span><canvas id="writing-canvas" aria-label="Practice writing the character ${entry.glyph}" lang="${document.documentElement.lang}"></canvas></div><div class="pad-tools"><span>Use your finger or mouse</span><button class="text-button" id="clear-pad">Clear strokes</button></div><button class="text-button alphabet-open-button" id="open-alphabet" type="button">View full alphabet chart <span aria-hidden="true">→</span></button></div>
+      <div class="glyph-model"><span lang="${document.documentElement.lang}">${entry.glyph}</span><small>${entry.roman}</small></div>
     </div>`;
+}
+
+function alphabetPracticeEntries(languageKey = state.language) {
+  return languages[languageKey].alphabet.flatMap((group) => group.items.map(([glyph, roman]) => ({ glyph, roman, group: group.label })));
+}
+
+function openAlphabetDialog() {
+  const language = languageData();
+  const entries = alphabetPracticeEntries();
+  let practiceIndex = 0;
+  byId('alphabet-dialog-title').textContent = `${language.name} alphabet`;
+  byId('alphabet-dialog-summary').textContent = `${entries.length} letters and signs · Select a character to practice it.`;
+  byId('alphabet-groups').innerHTML = language.alphabet.map((group) => `
+    <section class="alphabet-group"><h3>${escapeHtml(group.label)}</h3><div class="alphabet-grid">${group.items.map(([glyph, roman]) => {
+      const currentIndex = practiceIndex++;
+      return `<button class="alphabet-cell" type="button" data-practice-index="${currentIndex}" aria-label="Practice ${escapeHtml(glyph)}, ${escapeHtml(roman)}"><span class="alphabet-glyph" lang="${document.documentElement.lang}">${escapeHtml(glyph)}</span><span class="alphabet-roman">${escapeHtml(roman)}</span></button>`;
+    }).join('')}</div></section>`).join('');
+  byId('alphabet-groups').querySelectorAll('[data-practice-index]').forEach((button) => button.addEventListener('click', () => {
+    state.index = Number(button.dataset.practiceIndex);
+    byId('alphabet-dialog').close();
+    renderExercise();
+  }));
+  byId('alphabet-dialog').showModal();
+}
+
+function openDictionary() {
+  byId('dictionary-language').value = state.language;
+  byId('dictionary-search').value = '';
+  renderDictionary();
+  byId('dictionary-dialog').showModal();
+  byId('dictionary-search').focus();
+}
+
+function normalizeSearchText(value) {
+  return value.toLocaleLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
+function renderDictionary() {
+  const languageKey = byId('dictionary-language').value || state.language;
+  const language = languages[languageKey];
+  const entries = language.dictionary;
+  const query = normalizeSearchText(byId('dictionary-search').value.trim());
+  const matches = entries.filter((entry) => !query || [entry.native, entry.roman, entry.meaning].some((value) => normalizeSearchText(value).includes(query)));
+  byId('dictionary-results').setAttribute('lang', languageKey === 'sanskrit' ? 'sa' : languageKey === 'kannada' ? 'kn' : languageKey === 'tamil' ? 'ta' : languageKey === 'telugu' ? 'te' : 'ml');
+  byId('dictionary-result-count').textContent = `${matches.length} of ${entries.length} words · available offline`;
+  byId('dictionary-results').innerHTML = matches.length ? matches.map((entry) => `
+    <article class="dictionary-entry"><span class="dictionary-native">${escapeHtml(entry.native)}</span><span class="dictionary-roman">${escapeHtml(entry.roman)}</span><span class="dictionary-meaning">${escapeHtml(entry.meaning)}</span></article>`).join('') : '<p class="dictionary-empty">No matching words. Try a different spelling.</p>';
 }
 
 function wordExercise() {
@@ -224,7 +328,7 @@ function setupCanvas() {
     canvas.height = Math.round(rect.height * dpr);
     context.setTransform(dpr, 0, 0, dpr, 0, 0);
     context.clearRect(0, 0, rect.width, rect.height);
-    const glyph = languageData().vowels[state.index][0];
+    const glyph = alphabetPracticeEntries()[state.index].glyph;
     context.font = `70px "Noto Serif ${languageData().name}", serif`;
     context.textAlign = 'center';
     context.textBaseline = 'middle';
@@ -336,7 +440,8 @@ function showFeedback(type, text) {
 }
 
 function continueExercise() {
-  state.index = (state.index + 1) % 3;
+  const count = state.mode === 'alphabet' ? alphabetPracticeEntries().length : 3;
+  state.index = (state.index + 1) % count;
   state.selected = null;
   state.sentenceTiles = [];
   renderExercise();

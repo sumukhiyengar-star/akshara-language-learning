@@ -42,7 +42,7 @@
         <header class="topbar">
           <div class="mobile-brand"><span class="brand-mark">अ</span><strong>akshara<span class="brand-period">.</span></strong></div>
           <div class="topbar-note"><span class="sun-mark">☼</span> A good day to learn something new</div>
-          <div class="topbar-stats"><button class="install-button" id="install-app" type="button" hidden><span aria-hidden="true">⇩</span><span>Install</span></button><span class="top-stat"><span class="stat-fire">✦</span><strong id="top-streak">1</strong></span><span class="top-stat"><span class="stat-xp">✳</span><strong id="top-xp">0 XP</strong></span><button class="avatar small-avatar" aria-label="Learner profile">S</button></div>
+          <div class="topbar-stats"><button class="dictionary-top-button" id="open-dictionary" type="button" aria-label="Open dictionary"><span class="dictionary-search-icon" aria-hidden="true">⌕</span><span class="dictionary-button-label">Dictionary</span></button><button class="install-button" id="install-app" type="button" hidden><span aria-hidden="true">⇩</span><span>Install</span></button><span class="top-stat"><span class="stat-fire">✦</span><strong id="top-streak">1</strong></span><span class="top-stat"><span class="stat-xp">✳</span><strong id="top-xp">0 XP</strong></span><button class="avatar small-avatar" aria-label="Learner profile">S</button></div>
         </header>
 
         <div class="page-content">
@@ -91,6 +91,7 @@
                 <div class="phrase-pronunciation" id="phrase-pronunciation">namaskāra</div>
                 <div class="phrase-meaning" id="phrase-meaning">Hello / greetings</div>
                 <button class="audio-button" id="speak-phrase" aria-label="Hear phrase of the day"><span>▶</span> Listen</button>
+                <button class="text-button dictionary-rail-button" id="open-dictionary-secondary" type="button">Browse dictionary <span aria-hidden="true">→</span></button>
               </section>
               <section class="rail-panel progress-panel">
                 <div class="rail-heading"><span>YOUR MOMENTUM</span><span class="progress-star">✧</span></div>
@@ -106,6 +107,27 @@
         </div>
       </main>
     </div>
+    <dialog class="content-dialog alphabet-dialog" id="alphabet-dialog" aria-labelledby="alphabet-dialog-title">
+      <div class="dialog-header">
+        <div><div class="eyebrow">SCRIPT REFERENCE</div><h2 id="alphabet-dialog-title">Kannada alphabet</h2><p class="dialog-summary" id="alphabet-dialog-summary"></p></div>
+        <button class="dialog-close" type="button" data-close-dialog="alphabet-dialog" aria-label="Close alphabet chart">×</button>
+      </div>
+      <div class="alphabet-groups" id="alphabet-groups"></div>
+    </dialog>
+    <dialog class="content-dialog dictionary-dialog" id="dictionary-dialog" aria-labelledby="dictionary-dialog-title">
+      <div class="dialog-header">
+        <div><div class="eyebrow">OFFLINE WORD LOOKUP</div><h2 id="dictionary-dialog-title">Dictionary</h2></div>
+        <button class="dialog-close" type="button" data-close-dialog="dictionary-dialog" aria-label="Close dictionary">×</button>
+      </div>
+      <div class="dictionary-controls">
+        <label class="dictionary-language-label" for="dictionary-language">Language</label>
+        <select id="dictionary-language" class="dictionary-language-select"></select>
+        <label class="sr-only" for="dictionary-search">Search words</label>
+        <input id="dictionary-search" class="dictionary-search-input" type="search" autocomplete="off" placeholder="Search English, transliteration, or script" />
+        <div class="dictionary-result-count" id="dictionary-result-count" aria-live="polite"></div>
+      </div>
+      <div class="dictionary-results" id="dictionary-results" lang="kn"></div>
+    </dialog>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
   </body>
 </html>

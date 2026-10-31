@@ -63,6 +63,9 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid 
 .topbar-note { font-size: 11px; color: #747d76; }
 .sun-mark { color: #e6a84d; font-size: 16px; margin-right: 7px; }
 .topbar-stats { display: flex; align-items: center; gap: 17px; }
+.dictionary-top-button { display: inline-flex; align-items: center; gap: 6px; border: 1px solid #e4e1d6; border-radius: 4px; background: #fbfaf5; color: var(--green-dark); padding: 6px 9px; font-size: 9px; font-weight: 700; cursor: pointer; }
+.dictionary-top-button:hover { border-color: var(--green); background: var(--green-soft); }
+.dictionary-search-icon { font-size: 15px; line-height: 10px; }
 .install-button { display: inline-flex; align-items: center; gap: 6px; padding: 6px 9px; background: var(--green); color: white; border: 0; border-radius: 4px; font-size: 9px; font-weight: 700; cursor: pointer; }
 .install-button:hover { background: var(--green-dark); }
 .install-button[hidden] { display: none; }
@@ -175,6 +178,35 @@ h2 { font-family: var(--serif); font-size: 22px; font-weight: 400; margin-top: 5
 .audio-button { margin-top: 12px; background: transparent; border: 1px solid #e2e2d8; border-radius: 4px; padding: 6px 9px; color: var(--green-dark); font-size: 9px; cursor: pointer; }
 .audio-button:hover { background: var(--green-soft); }
 .audio-button span { font-size: 8px; margin-right: 4px; }
+.dictionary-rail-button { display: block; margin-top: 9px; }
+.content-dialog { width: min(660px, calc(100vw - 28px)); max-height: min(84vh, 760px); padding: 0; border: 1px solid #dfded3; border-radius: 8px; background: #fffefa; color: var(--ink); box-shadow: 0 18px 70px #17271f35; }
+.content-dialog::backdrop { background: #1d2924a8; backdrop-filter: blur(2px); }
+.dialog-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 20px 22px 15px; border-bottom: 1px solid #ece9df; }
+.dialog-header h2 { font-size: 23px; margin-top: 5px; }
+.dialog-summary { color: var(--muted); font-size: 10px; margin-top: 5px; }
+.dialog-close { display: grid; width: 30px; height: 30px; flex: 0 0 auto; place-items: center; border: 1px solid #e4e2d9; border-radius: 4px; background: #fffefa; color: #647068; font-size: 20px; line-height: 1; cursor: pointer; }
+.dialog-close:hover { background: #edf4ee; color: var(--green-dark); }
+.alphabet-groups { display: grid; gap: 18px; max-height: calc(84vh - 82px); overflow-y: auto; padding: 17px 22px 22px; }
+.alphabet-group h3 { margin: 0 0 8px; color: #6d786f; font-size: 10px; font-weight: 700; }
+.alphabet-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(69px, 1fr)); gap: 7px; }
+.alphabet-cell { min-width: 0; min-height: 58px; display: grid; align-content: center; justify-items: center; gap: 2px; padding: 5px 3px; border: 1px solid #e6e5dc; border-radius: 5px; background: #fbfaf5; cursor: pointer; transition: background .15s, border-color .15s, transform .15s; }
+.alphabet-cell:hover { transform: translateY(-1px); border-color: #9cbaa5; background: #edf5ef; }
+.alphabet-glyph { color: var(--green-dark); font: 24px/1.1 'Noto Serif Kannada', 'Noto Serif Tamil', 'Noto Serif Telugu', 'Noto Serif Malayalam', 'Noto Serif Devanagari', serif; }
+.alphabet-roman { max-width: 100%; overflow-wrap: anywhere; color: #828a81; font-size: 8px; text-align: center; }
+.dictionary-dialog { width: min(540px, calc(100vw - 28px)); }
+.dictionary-controls { padding: 15px 20px 10px; }
+.dictionary-language-label { display: block; color: #7d867d; font-size: 9px; font-weight: 700; margin-bottom: 5px; }
+.dictionary-language-select, .dictionary-search-input { width: 100%; min-height: 38px; border: 1px solid #e2e2d9; border-radius: 5px; background: #fffefa; color: var(--ink); padding: 8px 10px; font: inherit; font-size: 11px; }
+.dictionary-search-input { margin-top: 9px; }
+.dictionary-search-input::placeholder { color: #9da198; }
+.dictionary-result-count { min-height: 19px; padding-top: 7px; color: #8d9389; font-size: 9px; }
+.dictionary-results { display: grid; gap: 6px; max-height: 48vh; overflow-y: auto; padding: 0 20px 20px; }
+.dictionary-entry { display: grid; grid-template-columns: minmax(78px, .75fr) minmax(90px, 1fr) minmax(100px, 1.15fr); align-items: center; gap: 8px; min-height: 48px; padding: 7px 10px; border: 1px solid #eceae1; border-radius: 5px; background: #fbfaf5; }
+.dictionary-native { color: var(--green-dark); font: 19px/1.2 'Noto Serif Kannada', 'Noto Serif Tamil', 'Noto Serif Telugu', 'Noto Serif Malayalam', 'Noto Serif Devanagari', serif; }
+.dictionary-roman { color: #758076; font-size: 10px; }
+.dictionary-meaning { color: #303a33; font-size: 10px; }
+.dictionary-empty { padding: 17px 5px; color: #818a82; font-size: 11px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 .progress-star { color: #d1a13d; font-size: 14px; }
 .momentum-number { display: flex; gap: 6px; align-items: baseline; margin-top: 10px; }
 .momentum-number strong { font: 28px var(--serif); }
@@ -202,4 +234,6 @@ h2 { font-family: var(--serif); font-size: 22px; font-weight: 400; margin-top: 5
 @media (max-width: 1000px) { .sidebar { width: 210px; padding-left: 14px; padding-right: 14px; } .main-area { margin-left: 210px; } .learning-layout { grid-template-columns: minmax(0, 1fr) 205px; gap: 19px; } .topbar { padding: 0 4%; } .page-content { padding-left: 4%; padding-right: 4%; } .course-copy { min-width: 130px; } }
 @media (max-width: 760px) { .sidebar { display: none; } .main-area { margin: 0; padding-bottom: 57px; } .topbar { height: 55px; padding: 0 18px; } .mobile-brand { display: flex; } .topbar-note { display: none; } .topbar-stats { gap: 10px; } .install-button { padding: 6px; } .page-content { padding: 25px 18px 18px; } .welcome-row { align-items: flex-start; } h1 { font-size: 28px; } .daily-goal { min-width: 0; padding: 7px; gap: 6px; } .daily-goal > span:nth-child(2) { display: none; } .goal-ring { margin: 0; } .course-strip { margin-top: 19px; padding: 11px; gap: 9px; } .course-emblem { width: 36px; height: 36px; } .course-copy { min-width: 0; flex: 1; } .course-copy strong { font-size: 10px; } .course-sub { font-size: 8px; } .course-progress-wrap { display: none; } .course-switch { margin-left: auto; } .learning-layout { display: block; margin-top: 24px; } .right-rail { display: grid; grid-template-columns: 1fr 1fr; margin-top: 16px; } .rail-note { display: none; } .phrase-panel, .progress-panel { min-width: 0; } .phrase-script { font-size: 26px; margin-top: 10px; } .phrase-meaning { font-size: 12px; } .mode-tab { padding-left: 8px; padding-right: 8px; gap: 5px; } .exercise-card { padding: 14px 14px 14px; } .exercise-content { min-height: 238px; } .page-footer { margin-top: 21px; } .mobile-nav { display: flex; position: fixed; inset: auto 0 0; height: 56px; padding: 5px 12px; justify-content: space-around; background: #fbfaf5; border-top: 1px solid #e4e1d7; z-index: 5; } .mobile-nav button { border: 0; background: transparent; color: #778078; font-size: 9px; display: grid; justify-items: center; gap: 2px; min-width: 65px; cursor: pointer; } .mobile-nav .mobile-nav-icon { font-size: 16px; color: var(--green); } }
 @media (max-width: 430px) { .welcome-copy { max-width: 220px; line-height: 1.4; } .daily-goal { min-width: 40px; } .section-heading { align-items: center; } h2 { font-size: 19px; } .lesson-level { font-size: 7px; } .mode-tab { font-size: 9px; padding-left: 6px; padding-right: 6px; } .tab-count { display: none; } .script-practice { grid-template-columns: minmax(0, 1fr) 83px; gap: 8px; } .writing-pad, .glyph-model { height: 116px; } .glyph-model span { font-size: 43px; } .choice-grid { gap: 6px; } .choice-option { padding: 6px; font-size: 9px; min-height: 37px; } .word-native { font-size: 24px; } .page-footer { font-size: 7px; } }
+@media (max-width: 760px) { .topbar-stats { gap: 7px; } .dictionary-top-button { width: 30px; height: 30px; justify-content: center; padding: 4px; } .dictionary-button-label { display: none; } }
+@media (max-width: 430px) { .content-dialog { width: calc(100vw - 16px); max-height: 88vh; } .dialog-header { padding: 15px 14px 12px; } .alphabet-groups { max-height: calc(88vh - 75px); padding: 13px 14px 16px; } .alphabet-grid { grid-template-columns: repeat(auto-fill, minmax(57px, 1fr)); gap: 5px; } .dictionary-controls { padding: 13px 14px 8px; } .dictionary-results { max-height: 52vh; padding: 0 14px 14px; } .dictionary-entry { grid-template-columns: minmax(60px, .7fr) minmax(70px, 1fr) minmax(78px, 1.1fr); gap: 5px; padding: 6px; } .dictionary-native { font-size: 16px; } .dictionary-roman, .dictionary-meaning { font-size: 9px; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
