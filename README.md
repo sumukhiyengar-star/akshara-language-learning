@@ -12,14 +12,7 @@ Akshara is an installable Progressive Web App. Publish the project on an HTTPS h
 
 ## Publish for phone access
 
-One free option is GitHub Pages:
-
-1. Create a GitHub repository and upload the project files.
-2. In the repository, open **Settings > Pages**, choose **Deploy from a branch**, then select the `main` branch and `/ (root)`.
-3. After publishing, open `https://<username>.github.io/<repository>/` in Chrome on your Android phone.
-4. Choose **Install app** or **Add to Home screen** from Chrome's menu.
-
-The published HTTPS address is required for Android installation and offline support. The local `file://` preview is only for desktop use.
+The app is published at [https://sumukhiyengar-star.github.io/akshara-language-learning/](https://sumukhiyengar-star.github.io/akshara-language-learning/). Open that address in Chrome on your Android phone, then choose **Install app** or **Add to Home screen** from Chrome's menu. The first visit caches the app shell for offline reopening. The local `file://` preview is only for desktop use.
 
 ## Current scope
 
