@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f4ec" />
+    <meta name="description" content="A friendly, hands-on way to learn Indian languages." />
+    <title>Akshara - Learn Indian languages</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Main navigation">
+        <a class="brand" href="#home" aria-label="Akshara home">
+          <span class="brand-mark" aria-hidden="true">अ</span>
+          <span>akshara<span class="brand-period">.</span></span>
+        </a>
+        <div class="sidebar-label">YOUR LEARNING</div>
+        <nav class="primary-nav">
+          <button class="nav-link active" data-view="learn"><span class="nav-icon">◉</span> Learn</button>
+          <button class="nav-link" data-view="script"><span class="nav-icon">Aa</span> Script practice</button>
+          <button class="nav-link" data-view="words"><span class="nav-icon">▤</span> Word bank</button>
+        </nav>
+        <div class="sidebar-rule"></div>
+        <div class="sidebar-label">YOUR LANGUAGES</div>
+        <div class="language-list" id="language-list" aria-label="Choose a language"></div>
+        <div class="sidebar-bottom">
+          <div class="streak-card">
+            <div class="streak-top"><span class="streak-flame">✦</span><strong id="streak-count">1 day</strong></div>
+            <span class="muted">A little practice goes a long way.</span>
+            <div class="streak-week" aria-label="Weekly practice"><i class="done"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="week-labels"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
+          </div>
+          <div class="profile"><span class="avatar">S</span><span><strong>Language learner</strong><small>Beginner · A1</small></span><span class="profile-more">···</span></div>
+        </div>
+      </aside>
+
+      <main class="main-area" id="home">
+        <header class="topbar">
+          <div class="mobile-brand"><span class="brand-mark">अ</span><strong>akshara<span class="brand-period">.</span></strong></div>
+          <div class="topbar-note"><span class="sun-mark">☼</span> A good day to learn something new</div>
+          <div class="topbar-stats"><button class="install-button" id="install-app" type="button" hidden><span aria-hidden="true">⇩</span><span>Install</span></button><span class="top-stat"><span class="stat-fire">✦</span><strong id="top-streak">1</strong></span><span class="top-stat"><span class="stat-xp">✳</span><strong id="top-xp">0 XP</strong></span><button class="avatar small-avatar" aria-label="Learner profile">S</button></div>
+        </header>
+
+        <div class="page-content">
+          <section class="welcome-row">
+            <div>
+              <div class="eyebrow" id="today-label">YOUR LEARNING PATH</div>
+              <h1>Namaste, learner<span class="heading-dot">.</span></h1>
+              <p class="welcome-copy">Build a new language, one small practice at a time.</p>
+            </div>
+            <div class="daily-goal"><span class="goal-icon">◷</span><span><strong>Daily goal</strong><small><b id="goal-progress">0</b> of 10 practices</small></span><div class="goal-ring" id="goal-ring"><span>0%</span></div></div>
+          </section>
+
+          <section class="course-strip" aria-label="Course progress">
+            <div class="course-emblem" id="course-emblem">ಕ</div>
+            <div class="course-copy"><span class="course-label">CURRENT COURSE</span><strong id="course-name">Kannada for beginners</strong><span class="course-sub" id="course-sub">Unit 1 · Getting started</span></div>
+            <div class="course-progress-wrap"><div class="course-progress-meta"><span>Course progress</span><strong id="course-percent">0%</strong></div><div class="progress-track"><span id="course-progress-bar"></span></div></div>
+            <button class="course-switch" id="course-switch" title="Choose a language">Change <span aria-hidden="true">⌄</span></button>
+          </section>
+
+          <div class="learning-layout">
+            <section class="lesson-column" aria-label="Lesson">
+              <div class="section-heading">
+                <div><div class="eyebrow">TODAY'S PRACTICE</div><h2 id="lesson-title">Start with the sounds</h2></div>
+                <span class="lesson-level"><span class="level-dot"></span> BEGINNER</span>
+              </div>
+              <div class="mode-tabs" role="tablist" aria-label="Practice type">
+                <button class="mode-tab selected" role="tab" aria-selected="true" data-mode="alphabet"><span class="tab-glyph">ಅ</span> Script <span class="tab-count">01</span></button>
+                <button class="mode-tab" role="tab" aria-selected="false" data-mode="words"><span class="tab-glyph">ಶಬ್ದ</span> Words <span class="tab-count">02</span></button>
+                <button class="mode-tab" role="tab" aria-selected="false" data-mode="sentences"><span class="tab-glyph">ವಾಕ್ಯ</span> Sentences <span class="tab-count">03</span></button>
+              </div>
+
+              <article class="exercise-card">
+                <div class="exercise-topline"><span class="exercise-type"><span class="tiny-spark">✳</span><span id="exercise-type-label">LETTER STUDIO</span></span><span class="question-count" id="question-count">1 / 3</span></div>
+                <div class="exercise-progress"><span id="exercise-progress-bar"></span></div>
+                <div id="exercise-content" class="exercise-content"></div>
+                <div class="feedback" id="feedback" role="status" aria-live="polite" hidden></div>
+                <div class="exercise-actions" id="exercise-actions"></div>
+              </article>
+              <div class="lesson-footnote"><span class="footnote-icon">✦</span><span>Words are shown in their native script with a simple pronunciation guide.</span></div>
+            </section>
+
+            <aside class="right-rail" aria-label="Learning overview">
+              <section class="rail-panel phrase-panel">
+                <div class="rail-heading"><span>PHRASE OF THE DAY</span><span class="tiny-spark">✦</span></div>
+                <div class="phrase-script" id="phrase-script">ನಮಸ್ಕಾರ</div>
+                <div class="phrase-pronunciation" id="phrase-pronunciation">namaskāra</div>
+                <div class="phrase-meaning" id="phrase-meaning">Hello / greetings</div>
+                <button class="audio-button" id="speak-phrase" aria-label="Hear phrase of the day"><span>▶</span> Listen</button>
+              </section>
+              <section class="rail-panel progress-panel">
+                <div class="rail-heading"><span>YOUR MOMENTUM</span><span class="progress-star">✧</span></div>
+                <div class="momentum-number"><strong id="rail-xp">0</strong><span>XP earned</span></div>
+                <div class="momentum-track"><span id="xp-progress-bar"></span></div>
+                <div class="momentum-caption"><span>Next milestone</span><strong id="xp-to-next">25 XP</strong></div>
+                <div class="milestone-line"><span class="milestone-dot"></span><span class="milestone-dot"></span><span class="milestone-dot"></span><span class="milestone-dot"></span></div>
+              </section>
+              <section class="rail-note"><span class="note-mark">“</span><p>Learning a language is learning to see the world through another window.</p><span class="note-byline">A NOTE TO YOURSELF</span></section>
+            </aside>
+          </div>
+          <footer class="page-footer"><span>AKSHARA · LEARN AT YOUR OWN PACE</span><span>Made for curious minds <span class="footer-star">✳</span></span></footer>
+        </div>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
