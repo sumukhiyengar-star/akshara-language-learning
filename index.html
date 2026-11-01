@@ -22,6 +22,7 @@
         <nav class="primary-nav">
           <button class="nav-link active" data-view="learn"><span class="nav-icon">◉</span> Learn</button>
           <button class="nav-link" data-view="script"><span class="nav-icon">Aa</span> Script practice</button>
+          <button class="nav-link" data-view="builder"><span class="nav-icon">ಕಿ</span> Word builder</button>
           <button class="nav-link" data-view="words"><span class="nav-icon">▤</span> Word bank</button>
         </nav>
         <div class="sidebar-rule"></div>
@@ -72,6 +73,7 @@
                 <button class="mode-tab selected" role="tab" aria-selected="true" data-mode="alphabet"><span class="tab-glyph">ಅ</span> Script <span class="tab-count">01</span></button>
                 <button class="mode-tab" role="tab" aria-selected="false" data-mode="words"><span class="tab-glyph">ಶಬ್ದ</span> Words <span class="tab-count">02</span></button>
                 <button class="mode-tab" role="tab" aria-selected="false" data-mode="sentences"><span class="tab-glyph">ವಾಕ್ಯ</span> Sentences <span class="tab-count">03</span></button>
+                <button class="mode-tab" role="tab" aria-selected="false" data-mode="builder"><span class="tab-glyph">ಕಾ</span> Build <span class="tab-count">04</span></button>
               </div>
 
               <article class="exercise-card">
@@ -125,6 +127,9 @@
         <label class="sr-only" for="dictionary-search">Search words</label>
         <input id="dictionary-search" class="dictionary-search-input" type="search" autocomplete="off" placeholder="Search English, transliteration, or script" />
         <div class="dictionary-result-count" id="dictionary-result-count" aria-live="polite"></div>
+        <div class="dictionary-online-actions"><button class="online-button" id="lookup-online" type="button">Look up online</button><button class="download-button" id="download-dictionary" type="button">Download this language</button></div>
+        <div class="dictionary-online-status" id="dictionary-online-status" role="status" aria-live="polite"></div>
+        <div class="dictionary-online-result" id="dictionary-online-result"></div>
       </div>
       <div class="dictionary-results" id="dictionary-results" lang="kn"></div>
     </dialog>

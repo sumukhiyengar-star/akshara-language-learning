@@ -4,7 +4,7 @@ function makeDictionary(entries) {
 
 const languages = {
   kannada: {
-    name: 'Kannada', symbol: 'ಕ', words: [
+    name: 'Kannada', symbol: 'ಕ', wikiCode: 'kn', words: [
       { native: 'ನೀರು', roman: 'nīru', meaning: 'water' },
       { native: 'ಮನೆ', roman: 'mane', meaning: 'house' },
       { native: 'ನಮಸ್ಕಾರ', roman: 'namaskāra', meaning: 'hello / greetings' }
@@ -15,10 +15,20 @@ const languages = {
       { label: 'Other signs and common conjuncts', items: [['ಂ', 'anusvāra'], ['ಃ', 'visarga'], ['ೞ', 'ḻa (archaic)'], ['ಕ್ಷ', 'kṣa'], ['ಜ್ಞ', 'jña']] }
     ], dictionary: makeDictionary([
       ['ನೀರು', 'nīru', 'water'], ['ಮನೆ', 'mane', 'house / home'], ['ಅಮ್ಮ', 'amma', 'mother'], ['ಅಪ್ಪ', 'appa', 'father'], ['ಪುಸ್ತಕ', 'pustaka', 'book'], ['ಶಾಲೆ', 'śāle', 'school'], ['ಊಟ', 'ūṭa', 'food / meal'], ['ಹಣ್ಣು', 'haṇṇu', 'fruit'], ['ಮಗು', 'magu', 'child'], ['ಸ್ನೇಹಿತ', 'snēhita', 'friend'], ['ಸಮಯ', 'samaya', 'time'], ['ದಿನ', 'dina', 'day'], ['ರಾತ್ರಿ', 'rātri', 'night'], ['ಹೂವು', 'hūvu', 'flower'], ['ಸೂರ್ಯ', 'sūrya', 'sun'], ['ಚಂದ್ರ', 'candra', 'moon'], ['ನಾಯಿ', 'nāyi', 'dog'], ['ಬೆಕ್ಕು', 'bekku', 'cat'], ['ಹೌದು', 'haudu', 'yes'], ['ಇಲ್ಲ', 'illa', 'no'], ['ದಯವಿಟ್ಟು', 'dayaviṭṭu', 'please'], ['ಧನ್ಯವಾದಗಳು', 'dhanyavādagaḷu', 'thank you'], ['ಬನ್ನಿ', 'banni', 'please come'], ['ಹೋಗಿ', 'hōgi', 'go'], ['ತಿನ್ನು', 'tinnu', 'eat'], ['ಓದು', 'ōdu', 'read / study']
-    ]), sentence: { english: 'I drink water.', parts: ['ನಾನು', 'ನೀರು', 'ಕುಡಿಯುತ್ತೇನೆ'], roman: 'nānu nīru kuḍiyuttēne' }, phrase: { native: 'ನಮಸ್ಕಾರ', roman: 'namaskāra', meaning: 'Hello / greetings' }
+    ]), builderWords: [
+      { native: 'ನೀರು', roman: 'nīru', meaning: 'water', pieces: ['ನೀ', 'ರು'] },
+      { native: 'ಮನೆ', roman: 'mane', meaning: 'home', pieces: ['ಮ', 'ನೆ'] },
+      { native: 'ಅಮ್ಮ', roman: 'amma', meaning: 'mother', pieces: ['ಅ', 'ಮ್ಮ'] },
+      { native: 'ಶಾಲೆ', roman: 'śāle', meaning: 'school', pieces: ['ಶಾ', 'ಲೆ'] },
+      { native: 'ಹೂವು', roman: 'hūvu', meaning: 'flower', pieces: ['ಹೂ', 'ವು'] }
+    ], sentences: [
+      { english: 'I drink water.', parts: ['ನಾನು', 'ನೀರು', 'ಕುಡಿಯುತ್ತೇನೆ'], roman: 'nānu nīru kuḍiyuttēne' },
+      { english: 'I read a book.', parts: ['ನಾನು', 'ಪುಸ್ತಕ', 'ಓದುತ್ತೇನೆ'], roman: 'nānu pustaka ōduttēne' },
+      { english: 'The child eats fruit.', parts: ['ಮಗು', 'ಹಣ್ಣು', 'ತಿನ್ನುತ್ತದೆ'], roman: 'magu haṇṇu tinnuttade' }
+    ], phrase: { native: 'ನಮಸ್ಕಾರ', roman: 'namaskāra', meaning: 'Hello / greetings' }
   },
   sanskrit: {
-    name: 'Sanskrit', symbol: 'अ', words: [
+    name: 'Sanskrit', symbol: 'अ', wikiCode: 'sa', words: [
       { native: 'जलम्', roman: 'jalam', meaning: 'water' },
       { native: 'गृहम्', roman: 'gṛham', meaning: 'house' },
       { native: 'नमस्ते', roman: 'namaste', meaning: 'hello / greetings' }
@@ -29,10 +39,20 @@ const languages = {
       { label: 'Other signs and common conjuncts', items: [['ं', 'anusvāra'], ['ः', 'visarga'], ['क्ष', 'kṣa'], ['त्र', 'tra'], ['ज्ञ', 'jña']] }
     ], dictionary: makeDictionary([
       ['जलम्', 'jalam', 'water'], ['गृहम्', 'gṛham', 'house / home'], ['माता', 'mātā', 'mother'], ['पिता', 'pitā', 'father'], ['पुस्तकम्', 'pustakam', 'book'], ['विद्यालयः', 'vidyālayaḥ', 'school'], ['भोजनम्', 'bhojanam', 'food / meal'], ['फलम्', 'phalam', 'fruit'], ['बालकः', 'bālakaḥ', 'child / boy'], ['मित्रम्', 'mitram', 'friend'], ['समयः', 'samayaḥ', 'time'], ['दिनम्', 'dinam', 'day'], ['रात्रिः', 'rātriḥ', 'night'], ['पुष्पम्', 'puṣpam', 'flower'], ['सूर्यः', 'sūryaḥ', 'sun'], ['चन्द्रः', 'candraḥ', 'moon'], ['श्वानः', 'śvānaḥ', 'dog'], ['मार्जारः', 'mārjāraḥ', 'cat'], ['आम्', 'ām', 'yes'], ['न', 'na', 'no'], ['कृपया', 'kṛpayā', 'please'], ['धन्यवादः', 'dhanyavādaḥ', 'thank you'], ['आगच्छति', 'āgacchati', 'comes'], ['गच्छति', 'gacchati', 'goes'], ['खादति', 'khādati', 'eats'], ['पठति', 'paṭhati', 'reads / studies']
-    ]), sentence: { english: 'I drink water.', parts: ['अहं', 'जलं', 'पिबामि'], roman: 'ahaṃ jalaṃ pibāmi' }, phrase: { native: 'नमस्ते', roman: 'namaste', meaning: 'Hello / greetings' }
+    ]), builderWords: [
+      { native: 'जलम्', roman: 'jalam', meaning: 'water', pieces: ['ज', 'लम्'] },
+      { native: 'माता', roman: 'mātā', meaning: 'mother', pieces: ['मा', 'ता'] },
+      { native: 'गृहम्', roman: 'gṛham', meaning: 'home', pieces: ['गृ', 'हम्'] },
+      { native: 'फलम्', roman: 'phalam', meaning: 'fruit', pieces: ['फ', 'लम्'] },
+      { native: 'नमस्ते', roman: 'namaste', meaning: 'hello', pieces: ['न', 'म', 'स्ते'] }
+    ], sentences: [
+      { english: 'I drink water.', parts: ['अहं', 'जलं', 'पिबामि'], roman: 'ahaṃ jalaṃ pibāmi' },
+      { english: 'I read a book.', parts: ['अहं', 'पुस्तकं', 'पठामि'], roman: 'ahaṃ pustakaṃ paṭhāmi' },
+      { english: 'The child eats fruit.', parts: ['बालकः', 'फलं', 'खादति'], roman: 'bālakaḥ phalaṃ khādati' }
+    ], phrase: { native: 'नमस्ते', roman: 'namaste', meaning: 'Hello / greetings' }
   },
   tamil: {
-    name: 'Tamil', symbol: 'அ', words: [
+    name: 'Tamil', symbol: 'அ', wikiCode: 'ta', words: [
       { native: 'தண்ணீர்', roman: 'taṇṇīr', meaning: 'water' },
       { native: 'வீடு', roman: 'vīṭu', meaning: 'house / home' },
       { native: 'வணக்கம்', roman: 'vaṇakkam', meaning: 'hello / greetings' }
@@ -43,10 +63,20 @@ const languages = {
       { label: 'Vowel signs and other signs', items: [['ா', 'ā'], ['ி', 'i'], ['ீ', 'ī'], ['ு', 'u'], ['ூ', 'ū'], ['ெ', 'e'], ['ே', 'ē'], ['ை', 'ai'], ['ொ', 'o'], ['ோ', 'ō'], ['ௌ', 'au'], ['்', 'puḷḷi'], ['ஃ', 'āytam']] }
     ], dictionary: makeDictionary([
       ['தண்ணீர்', 'taṇṇīr', 'water'], ['வீடு', 'vīṭu', 'house / home'], ['அம்மா', 'ammā', 'mother'], ['அப்பா', 'appā', 'father'], ['புத்தகம்', 'puttakam', 'book'], ['பள்ளி', 'paḷḷi', 'school'], ['சாப்பாடு', 'sāppāṭu', 'food / meal'], ['பழம்', 'paḻam', 'fruit'], ['குழந்தை', 'kuḻantai', 'child'], ['நண்பர்', 'naṇpar', 'friend'], ['நேரம்', 'nēram', 'time'], ['நாள்', 'nāḷ', 'day'], ['இரவு', 'iravu', 'night'], ['மலர்', 'malar', 'flower'], ['சூரியன்', 'sūriyaṉ', 'sun'], ['நிலா', 'nilā', 'moon'], ['நாய்', 'nāy', 'dog'], ['பூனை', 'pūṉai', 'cat'], ['ஆம்', 'ām', 'yes'], ['இல்லை', 'illai', 'no'], ['தயவுசெய்து', 'tayavuceytu', 'please'], ['நன்றி', 'naṉṟi', 'thank you'], ['வா', 'vā', 'come'], ['போ', 'pō', 'go'], ['சாப்பிடு', 'sāppiṭu', 'eat'], ['படி', 'paṭi', 'read / study']
-    ]), sentence: { english: 'I drink water.', parts: ['நான்', 'தண்ணீர்', 'குடிக்கிறேன்'], roman: 'nāṉ taṇṇīr kuṭikkiṟēṉ' }, phrase: { native: 'வணக்கம்', roman: 'vaṇakkam', meaning: 'Hello / greetings' }
+    ]), builderWords: [
+      { native: 'தண்ணீர்', roman: 'taṇṇīr', meaning: 'water', pieces: ['த', 'ண்', 'ணீ', 'ர்'] },
+      { native: 'வீடு', roman: 'vīṭu', meaning: 'home', pieces: ['வீ', 'டு'] },
+      { native: 'அம்மா', roman: 'ammā', meaning: 'mother', pieces: ['அம்', 'மா'] },
+      { native: 'பழம்', roman: 'paḻam', meaning: 'fruit', pieces: ['ப', 'ழம்'] },
+      { native: 'மலர்', roman: 'malar', meaning: 'flower', pieces: ['ம', 'லர்'] }
+    ], sentences: [
+      { english: 'I drink water.', parts: ['நான்', 'தண்ணீர்', 'குடிக்கிறேன்'], roman: 'nāṉ taṇṇīr kuṭikkiṟēṉ' },
+      { english: 'I read a book.', parts: ['நான்', 'புத்தகம்', 'படிக்கிறேன்'], roman: 'nāṉ puttakam paṭikkiṟēṉ' },
+      { english: 'The child eats fruit.', parts: ['குழந்தை', 'பழம்', 'சாப்பிடுகிறது'], roman: 'kuḻantai paḻam sāppiṭukiṟatu' }
+    ], phrase: { native: 'வணக்கம்', roman: 'vaṇakkam', meaning: 'Hello / greetings' }
   },
   telugu: {
-    name: 'Telugu', symbol: 'అ', words: [
+    name: 'Telugu', symbol: 'అ', wikiCode: 'te', words: [
       { native: 'నీరు', roman: 'nīru', meaning: 'water' },
       { native: 'ఇల్లు', roman: 'illu', meaning: 'house / home' },
       { native: 'నమస్కారం', roman: 'namaskāram', meaning: 'hello / greetings' }
@@ -57,10 +87,20 @@ const languages = {
       { label: 'Other signs and common conjuncts', items: [['ం', 'anusvāra'], ['ః', 'visarga'], ['క్ష', 'kṣa'], ['జ్ఞ', 'jña']] }
     ], dictionary: makeDictionary([
       ['నీరు', 'nīru', 'water'], ['ఇల్లు', 'illu', 'house / home'], ['అమ్మ', 'amma', 'mother'], ['నాన్న', 'nānna', 'father'], ['పుస్తకం', 'pustakaṃ', 'book'], ['పాఠశాల', 'pāṭhaśāla', 'school'], ['భోజనం', 'bhōjanaṃ', 'food / meal'], ['పండు', 'paṇḍu', 'fruit'], ['పిల్ల', 'pilla', 'child'], ['స్నేహితుడు', 'snēhituḍu', 'friend'], ['సమయం', 'samayaṃ', 'time'], ['రోజు', 'rōju', 'day'], ['రాత్రి', 'rātri', 'night'], ['పువ్వు', 'puvvu', 'flower'], ['సూర్యుడు', 'sūryuḍu', 'sun'], ['చంద్రుడు', 'candruḍu', 'moon'], ['కుక్క', 'kukka', 'dog'], ['పిల్లి', 'pilli', 'cat'], ['అవును', 'avunu', 'yes'], ['కాదు', 'kādu', 'no'], ['దయచేసి', 'dayacēsi', 'please'], ['ధన్యవాదాలు', 'dhanyavādālu', 'thank you'], ['రా', 'rā', 'come'], ['వెళ్లు', 'veḷḷu', 'go'], ['తిను', 'tinu', 'eat'], ['చదువు', 'caduvu', 'read / study']
-    ]), sentence: { english: 'I drink water.', parts: ['నేను', 'నీరు', 'తాగుతాను'], roman: 'nēnu nīru tāgutānu' }, phrase: { native: 'నమస్కారం', roman: 'namaskāram', meaning: 'Hello / greetings' }
+    ]), builderWords: [
+      { native: 'నీరు', roman: 'nīru', meaning: 'water', pieces: ['నీ', 'రు'] },
+      { native: 'ఇల్లు', roman: 'illu', meaning: 'home', pieces: ['ఇ', 'ల్లు'] },
+      { native: 'అమ్మ', roman: 'amma', meaning: 'mother', pieces: ['అ', 'మ్మ'] },
+      { native: 'పువ్వు', roman: 'puvvu', meaning: 'flower', pieces: ['పు', 'వ్వు'] },
+      { native: 'పండు', roman: 'paṇḍu', meaning: 'fruit', pieces: ['పం', 'డు'] }
+    ], sentences: [
+      { english: 'I drink water.', parts: ['నేను', 'నీరు', 'తాగుతాను'], roman: 'nēnu nīru tāgutānu' },
+      { english: 'I read a book.', parts: ['నేను', 'పుస్తకం', 'చదువుతాను'], roman: 'nēnu pustakaṃ caduvutānu' },
+      { english: 'The child eats fruit.', parts: ['పిల్ల', 'పండు', 'తింటుంది'], roman: 'pilla paṇḍu tiṇṭundi' }
+    ], phrase: { native: 'నమస్కారం', roman: 'namaskāram', meaning: 'Hello / greetings' }
   },
   malayalam: {
-    name: 'Malayalam', symbol: 'അ', words: [
+    name: 'Malayalam', symbol: 'അ', wikiCode: 'ml', words: [
       { native: 'വെള്ളം', roman: 'veḷḷam', meaning: 'water' },
       { native: 'വീട്', roman: 'vīṭŭ', meaning: 'house / home' },
       { native: 'നമസ്കാരം', roman: 'namaskāram', meaning: 'hello / greetings' }
@@ -71,7 +111,17 @@ const languages = {
       { label: 'Other signs and chillu letters', items: [['ം', 'anusvāra'], ['ഃ', 'visarga'], ['ൺ', 'ṇ'], ['ൻ', 'n'], ['ർ', 'r'], ['ൽ', 'l'], ['ൾ', 'ḷ'], ['ൿ', 'k']] }
     ], dictionary: makeDictionary([
       ['വെള്ളം', 'veḷḷam', 'water'], ['വീട്', 'vīṭŭ', 'house / home'], ['അമ്മ', 'amma', 'mother'], ['അച്ഛൻ', 'acchan', 'father'], ['പുസ്തകം', 'pustakaṁ', 'book'], ['വിദ്യാലയം', 'vidyālayam', 'school'], ['ഭക്ഷണം', 'bhakṣaṇaṁ', 'food / meal'], ['പഴം', 'paḻaṁ', 'fruit'], ['കുട്ടി', 'kuṭṭi', 'child'], ['സുഹൃത്ത്', 'suhr̥ttŭ', 'friend'], ['സമയം', 'samayaṁ', 'time'], ['ദിവസം', 'divasam', 'day'], ['രാത്രി', 'rātri', 'night'], ['പൂവ്', 'pūvŭ', 'flower'], ['സൂര്യൻ', 'sūryan', 'sun'], ['ചന്ദ്രൻ', 'candran', 'moon'], ['നായ', 'nāya', 'dog'], ['പൂച്ച', 'pūcca', 'cat'], ['അതെ', 'athe', 'yes'], ['ഇല്ല', 'illa', 'no'], ['ദയവായി', 'dayavāyi', 'please'], ['നന്ദി', 'nandi', 'thank you'], ['വരൂ', 'varū', 'come (polite)'], ['പോകൂ', 'pōkū', 'go (polite)'], ['കഴിക്കുക', 'kaḻikkuka', 'eat'], ['വായിക്കുക', 'vāyikkuka', 'read / study']
-    ]), sentence: { english: 'I drink water.', parts: ['ഞാൻ', 'വെള്ളം', 'കുടിക്കുന്നു'], roman: 'ñān veḷḷam kuṭikkunnu' }, phrase: { native: 'നമസ്കാരം', roman: 'namaskāram', meaning: 'Hello / greetings' }
+    ]), builderWords: [
+      { native: 'വെള്ളം', roman: 'veḷḷam', meaning: 'water', pieces: ['വെ', 'ള്ളം'] },
+      { native: 'വീട്', roman: 'vīṭŭ', meaning: 'home', pieces: ['വീ', 'ട്'] },
+      { native: 'അമ്മ', roman: 'amma', meaning: 'mother', pieces: ['അ', 'മ്മ'] },
+      { native: 'പൂവ്', roman: 'pūvŭ', meaning: 'flower', pieces: ['പൂ', 'വ്'] },
+      { native: 'കുട്ടി', roman: 'kuṭṭi', meaning: 'child', pieces: ['കു', 'ട്ടി'] }
+    ], sentences: [
+      { english: 'I drink water.', parts: ['ഞാൻ', 'വെള്ളം', 'കുടിക്കുന്നു'], roman: 'ñān veḷḷam kuṭikkunnu' },
+      { english: 'I read a book.', parts: ['ഞാൻ', 'പുസ്തകം', 'വായിക്കുന്നു'], roman: 'ñān pustakaṁ vāyikkunnu' },
+      { english: 'The child eats fruit.', parts: ['കുട്ടി', 'പഴം', 'കഴിക്കുുന്നു'], roman: 'kuṭṭi paḻaṁ kaḻikkunnu' }
+    ], phrase: { native: 'നമസ്കാരം', roman: 'namaskāram', meaning: 'Hello / greetings' }
   }
 };
 
@@ -85,6 +135,9 @@ const state = {
   index: 0,
   selected: null,
   sentenceTiles: [],
+  builderTiles: [],
+  builderOrder: [],
+  onlineLookup: null,
   completed: Number(localStorage.getItem('akshara-completed') || 0),
   xp: Number(localStorage.getItem('akshara-xp') || 0),
   dailyPractices: savedDailyPractices,
@@ -94,8 +147,7 @@ const state = {
 
 const byId = (id) => document.getElementById(id);
 const languageData = () => languages[state.language];
-const modeLabels = { alphabet: 'LETTER STUDIO', words: 'WORD MATCH', sentences: 'SENTENCE BUILDER' };
-const alphabetChoices = ['ಅ', 'ಆ', 'ಇ', 'ಈ', 'ಉ', 'ಊ'];
+const modeLabels = { alphabet: 'LETTER STUDIO', words: 'WORD MATCH', sentences: 'SENTENCE BUILDER', builder: 'AKSHARA BUILDER' };
 
 function init() {
   buildLanguageList();
@@ -146,9 +198,25 @@ function bindControls() {
   document.querySelectorAll('[data-mode]').forEach((tab) => tab.addEventListener('click', () => selectMode(tab.dataset.mode)));
   byId('open-dictionary').addEventListener('click', openDictionary);
   byId('open-dictionary-secondary').addEventListener('click', openDictionary);
-  byId('dictionary-language').addEventListener('change', renderDictionary);
-  byId('dictionary-search').addEventListener('input', renderDictionary);
+  byId('dictionary-language').addEventListener('change', () => {
+    state.onlineLookup = null;
+    byId('dictionary-online-status').textContent = '';
+    byId('dictionary-online-result').innerHTML = '';
+    renderDictionary();
+  });
+  byId('dictionary-search').addEventListener('input', () => {
+    state.onlineLookup = null;
+    byId('dictionary-online-status').textContent = '';
+    byId('dictionary-online-result').innerHTML = '';
+    renderDictionary();
+  });
+  byId('lookup-online').addEventListener('click', lookupOnlineWord);
+  byId('download-dictionary').addEventListener('click', downloadCurrentDictionary);
   document.querySelectorAll('[data-close-dialog]').forEach((button) => button.addEventListener('click', () => byId(button.dataset.closeDialog).close()));
+  document.addEventListener('click', (event) => {
+    const speaker = event.target.closest('[data-speak-text]');
+    if (speaker) speakText(speaker.dataset.speakText, speaker.dataset.speakLanguage || state.language);
+  });
   byId('course-switch').addEventListener('click', () => {
     const keys = Object.keys(languages);
     const next = keys[(keys.indexOf(state.language) + 1) % keys.length];
@@ -162,7 +230,7 @@ function bindControls() {
       document.querySelectorAll('.nav-link').forEach((nav) => nav.classList.toggle('active', nav === button));
       return;
     }
-    const mode = button.dataset.view === 'script' ? 'alphabet' : button.dataset.view === 'words' ? 'words' : 'alphabet';
+    const mode = button.dataset.view === 'script' ? 'alphabet' : button.dataset.view === 'builder' ? 'builder' : 'alphabet';
     selectMode(mode);
     document.querySelectorAll('.nav-link').forEach((nav) => nav.classList.toggle('active', nav === button));
     document.querySelector('.lesson-column').scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -175,6 +243,8 @@ function selectLanguage(key) {
   state.index = 0;
   state.selected = null;
   state.sentenceTiles = [];
+  state.builderTiles = [];
+  state.builderOrder = [];
   localStorage.setItem('akshara-language', key);
   buildLanguageList();
   renderAll();
@@ -185,6 +255,8 @@ function selectMode(mode) {
   state.index = 0;
   state.selected = null;
   state.sentenceTiles = [];
+  state.builderTiles = [];
+  state.builderOrder = [];
   document.querySelectorAll('[data-mode]').forEach((tab) => {
     const active = tab.dataset.mode === mode;
     tab.classList.toggle('selected', active);
@@ -212,11 +284,12 @@ function renderExercise() {
   byId('feedback').hidden = true;
   byId('feedback').className = 'feedback';
   byId('exercise-type-label').textContent = modeLabels[state.mode];
-  const count = state.mode === 'alphabet' ? alphabetPracticeEntries().length : 3;
+  const count = getExerciseCount();
+  if (state.mode === 'builder') prepareBuilderRound();
   byId('question-count').textContent = `${state.index + 1} / ${count}`;
   byId('exercise-progress-bar').style.width = `${((state.index + 1) / count) * 100}%`;
-  byId('lesson-title').textContent = state.mode === 'alphabet' ? 'Start with the sounds' : state.mode === 'words' ? 'Grow your word bank' : 'Put the words together';
-  byId('exercise-content').innerHTML = state.mode === 'alphabet' ? alphabetExercise() : state.mode === 'words' ? wordExercise() : sentenceExercise();
+  byId('lesson-title').textContent = state.mode === 'alphabet' ? 'Start with the sounds' : state.mode === 'words' ? 'Grow your word bank' : state.mode === 'builder' ? 'Make a word from its parts' : 'Put the words together';
+  byId('exercise-content').innerHTML = state.mode === 'alphabet' ? alphabetExercise() : state.mode === 'words' ? wordExercise() : state.mode === 'builder' ? builderExercise() : sentenceExercise();
   renderActions();
   if (state.mode === 'alphabet') {
     setupCanvas();
@@ -224,6 +297,14 @@ function renderExercise() {
   }
   if (state.mode === 'words') bindChoices();
   if (state.mode === 'sentences') bindTiles();
+  if (state.mode === 'builder') bindBuilderTiles();
+}
+
+function getExerciseCount() {
+  if (state.mode === 'alphabet') return alphabetPracticeEntries().length;
+  if (state.mode === 'builder') return languageData().builderWords.length;
+  if (state.mode === 'sentences') return languageData().sentences.length;
+  return languageData().words.length;
 }
 
 function alphabetExercise() {
@@ -233,7 +314,7 @@ function alphabetExercise() {
     <p class="prompt-hint">Follow the guide, then check your practice.</p>
     <div class="script-practice">
       <div><div class="writing-pad"><span class="pad-caption">YOUR STROKES</span><canvas id="writing-canvas" aria-label="Practice writing the character ${entry.glyph}" lang="${document.documentElement.lang}"></canvas></div><div class="pad-tools"><span>Use your finger or mouse</span><button class="text-button" id="clear-pad">Clear strokes</button></div><button class="text-button alphabet-open-button" id="open-alphabet" type="button">View full alphabet chart <span aria-hidden="true">→</span></button></div>
-      <div class="glyph-model"><span lang="${document.documentElement.lang}">${entry.glyph}</span><small>${entry.roman}</small></div>
+      <div class="glyph-model"><span lang="${document.documentElement.lang}">${entry.glyph}</span><button class="glyph-audio" type="button" data-speak-text="${escapeHtml(entry.glyph)}" data-speak-language="${state.language}" aria-label="Hear ${escapeHtml(entry.glyph)}">▶</button><small>${entry.roman}</small></div>
     </div>`;
 }
 
@@ -263,6 +344,9 @@ function openAlphabetDialog() {
 function openDictionary() {
   byId('dictionary-language').value = state.language;
   byId('dictionary-search').value = '';
+  state.onlineLookup = null;
+  byId('dictionary-online-status').textContent = '';
+  byId('dictionary-online-result').innerHTML = '';
   renderDictionary();
   byId('dictionary-dialog').showModal();
   byId('dictionary-search').focus();
@@ -275,13 +359,165 @@ function normalizeSearchText(value) {
 function renderDictionary() {
   const languageKey = byId('dictionary-language').value || state.language;
   const language = languages[languageKey];
-  const entries = language.dictionary;
+  const entries = getDictionaryEntries(languageKey);
   const query = normalizeSearchText(byId('dictionary-search').value.trim());
   const matches = entries.filter((entry) => !query || [entry.native, entry.roman, entry.meaning].some((value) => normalizeSearchText(value).includes(query)));
   byId('dictionary-results').setAttribute('lang', languageKey === 'sanskrit' ? 'sa' : languageKey === 'kannada' ? 'kn' : languageKey === 'tamil' ? 'ta' : languageKey === 'telugu' ? 'te' : 'ml');
   byId('dictionary-result-count').textContent = `${matches.length} of ${entries.length} words · available offline`;
-  byId('dictionary-results').innerHTML = matches.length ? matches.map((entry) => `
-    <article class="dictionary-entry"><span class="dictionary-native">${escapeHtml(entry.native)}</span><span class="dictionary-roman">${escapeHtml(entry.roman)}</span><span class="dictionary-meaning">${escapeHtml(entry.meaning)}</span></article>`).join('') : '<p class="dictionary-empty">No matching words. Try a different spelling.</p>';
+  byId('dictionary-results').innerHTML = matches.length ? matches.map((entry) => {
+    const source = entry.sourceUrl ? `<span class="dictionary-source">Source: <a href="${escapeHtml(entry.sourceUrl)}" target="_blank" rel="noopener">${escapeHtml(entry.source)}</a> · ${escapeHtml(entry.license || 'CC BY-SA')}</span>` : '';
+    return `<article class="dictionary-entry"><span class="dictionary-native">${escapeHtml(entry.native)}</span><span class="dictionary-roman">${escapeHtml(entry.roman || '')}</span><span class="dictionary-meaning">${escapeHtml(entry.meaning)}</span>${source}</article>`;
+  }).join('') : '<p class="dictionary-empty">No matching words. Try a different spelling.</p>';
+}
+
+function savedDictionaryEntries(languageKey) {
+  try {
+    return JSON.parse(localStorage.getItem(`akshara-dictionary-${languageKey}`) || '[]');
+  } catch {
+    return [];
+  }
+}
+
+function getDictionaryEntries(languageKey) {
+  const baseEntries = languages[languageKey].dictionary;
+  const savedEntries = savedDictionaryEntries(languageKey);
+  const savedByNative = new Map(savedEntries.map((entry) => [entry.native, entry]));
+  const baseNatives = new Set(baseEntries.map((entry) => entry.native));
+  return [
+    ...baseEntries.map((entry) => savedByNative.get(entry.native) || entry),
+    ...savedEntries.filter((entry) => !baseNatives.has(entry.native))
+  ];
+}
+
+function wiktionaryPlainText(html) {
+  return new DOMParser().parseFromString(html, 'text/html').body.textContent.replace(/\s+/g, ' ').trim();
+}
+
+async function fetchWiktionaryEntry(languageKey, native) {
+  const language = languages[languageKey];
+  const endpoint = `https://en.wiktionary.org/api/rest_v1/page/definition/${encodeURIComponent(native)}`;
+  const response = await fetch(endpoint, { headers: { Accept: 'application/json' } });
+  if (response.status === 404) return null;
+  if (!response.ok) throw new Error(`Dictionary request failed (${response.status}).`);
+
+  const payload = await response.json();
+  const sections = (payload[language.wikiCode] || []).filter((section) => section.language === language.name);
+  const senses = sections.flatMap((section) => (section.definitions || []).map((item) => ({
+    meaning: wiktionaryPlainText(item.definition),
+    partOfSpeech: section.partOfSpeech,
+    examples: (item.parsedExamples || []).map((example) => ({
+      native: wiktionaryPlainText(example.example || ''),
+      roman: wiktionaryPlainText(example.transliteration || ''),
+      meaning: wiktionaryPlainText(example.translation || '')
+    })).filter((example) => example.native && example.meaning)
+  }))).filter((sense) => sense.meaning);
+  if (!senses.length) return null;
+
+  const existing = language.dictionary.find((entry) => entry.native === native) || savedDictionaryEntries(languageKey).find((entry) => entry.native === native);
+  const meanings = [...new Set(senses.map((sense) => sense.meaning))].slice(0, 3);
+  return {
+    native,
+    roman: existing?.roman || '',
+    meaning: meanings.join('; '),
+    partOfSpeech: [...new Set(senses.map((sense) => sense.partOfSpeech))].join(', '),
+    examples: senses.flatMap((sense) => sense.examples).slice(0, 2),
+    source: 'Wiktionary',
+    sourceUrl: `https://en.wiktionary.org/wiki/${encodeURIComponent(native)}`,
+    license: 'CC BY-SA'
+  };
+}
+
+function saveDictionaryEntry(languageKey, entry) {
+  const entries = savedDictionaryEntries(languageKey).filter((saved) => saved.native !== entry.native);
+  entries.push(entry);
+  localStorage.setItem(`akshara-dictionary-${languageKey}`, JSON.stringify(entries));
+}
+
+async function lookupOnlineWord() {
+  const languageKey = byId('dictionary-language').value || state.language;
+  const query = byId('dictionary-search').value.trim();
+  const status = byId('dictionary-online-status');
+  const result = byId('dictionary-online-result');
+  if (!query) {
+    status.textContent = 'Enter a word in its native script, transliteration, or English.';
+    return;
+  }
+  if (!navigator.onLine) {
+    status.textContent = 'You are offline. The saved dictionary is still available above.';
+    return;
+  }
+
+  const localMatch = getDictionaryEntries(languageKey).find((entry) => [entry.native, entry.roman, entry.meaning].some((value) => normalizeSearchText(value) === normalizeSearchText(query)));
+  const native = localMatch?.native || query;
+  const button = byId('lookup-online');
+  button.disabled = true;
+  result.innerHTML = '';
+  status.textContent = `Looking up ${native}…`;
+  try {
+    const entry = await fetchWiktionaryEntry(languageKey, native);
+    if (!entry) {
+      state.onlineLookup = null;
+      status.textContent = `No ${languages[languageKey].name} definition was found for “${native}”.`;
+      return;
+    }
+    state.onlineLookup = { languageKey, entry };
+    const examples = entry.examples.map((example) => `<p class="online-example"><span lang="${document.documentElement.lang}">${escapeHtml(example.native)}</span>${example.roman ? ` <small>${escapeHtml(example.roman)}</small>` : ''}<br><span>${escapeHtml(example.meaning)}</span></p>`).join('');
+    result.innerHTML = `<article class="online-definition"><strong lang="${document.documentElement.lang}">${escapeHtml(entry.native)}${entry.roman ? ` · ${escapeHtml(entry.roman)}` : ''}</strong><span>${escapeHtml(entry.meaning)}</span>${entry.partOfSpeech ? `<small>${escapeHtml(entry.partOfSpeech)}</small>` : ''}${examples}<span class="online-source">Source: <a href="${entry.sourceUrl}" target="_blank" rel="noopener">English Wiktionary</a> · ${entry.license}</span><button class="online-save-button" id="save-online-entry" type="button">Save for offline</button></article>`;
+    status.textContent = 'Definition found. Save it to keep it available offline.';
+    byId('save-online-entry').addEventListener('click', () => {
+      saveDictionaryEntry(languageKey, entry);
+      renderDictionary();
+      status.textContent = `${entry.native} saved for offline lookup.`;
+      result.innerHTML = '';
+      state.onlineLookup = null;
+    });
+  } catch {
+    status.textContent = 'Online lookup could not connect. Try again when you are online.';
+  } finally {
+    button.disabled = false;
+  }
+}
+
+async function downloadCurrentDictionary() {
+  const languageKey = byId('dictionary-language').value || state.language;
+  const language = languages[languageKey];
+  const button = byId('download-dictionary');
+  const status = byId('dictionary-online-status');
+  if (!navigator.onLine) {
+    status.textContent = 'Connect to the internet to download this word pack.';
+    return;
+  }
+
+  const savedNatives = new Set(savedDictionaryEntries(languageKey).map((entry) => entry.native));
+  const todo = language.dictionary.filter((entry) => !savedNatives.has(entry.native));
+  if (!todo.length) {
+    status.textContent = `${language.name} word pack is already saved on this device.`;
+    return;
+  }
+
+  button.disabled = true;
+  let downloaded = 0;
+  let completed = 0;
+  try {
+    for (let start = 0; start < todo.length; start += 6) {
+      const batch = todo.slice(start, start + 6);
+      const results = await Promise.all(batch.map(async (entry) => {
+        try { return await fetchWiktionaryEntry(languageKey, entry.native); } catch { return null; }
+      }));
+      results.forEach((entry) => {
+        if (entry) {
+          saveDictionaryEntry(languageKey, entry);
+          downloaded += 1;
+        }
+      });
+      completed += batch.length;
+      status.textContent = `Checking ${language.name} words: ${completed} of ${todo.length}…`;
+    }
+    renderDictionary();
+    status.textContent = `${downloaded} definitions saved for offline use. The original ${language.name} glossary remains available too.`;
+  } finally {
+    button.disabled = false;
+  }
 }
 
 function wordExercise() {
@@ -289,12 +525,12 @@ function wordExercise() {
   const options = [word.meaning, ...languageData().words.filter((_, index) => index !== state.index).map((item) => item.meaning)].sort((a, b) => a.localeCompare(b));
   return `<div class="prompt-label">CHOOSE THE ENGLISH MEANING</div>
     <h3 class="prompt-title">What does this word mean?</h3>
-    <div class="word-display"><span class="word-native" lang="${document.documentElement.lang}">${word.native}</span><span class="word-detail"><span class="word-pronunciation">${word.roman}</span><span class="word-instruction">Listen, read, and remember</span></span></div>
+    <div class="word-display"><span class="word-native" lang="${document.documentElement.lang}">${word.native}</span><span class="word-detail"><span class="word-pronunciation">${word.roman}</span><span class="word-instruction">Listen, read, and remember</span></span><button class="audio-button word-audio" type="button" data-speak-text="${escapeHtml(word.native)}" data-speak-language="${state.language}" aria-label="Hear ${escapeHtml(word.native)}">▶</button></div>
     <div class="choice-grid">${options.map((option, index) => `<button class="choice-option" data-choice="${escapeHtml(option)}"><span class="choice-key">${String.fromCharCode(65 + index)}</span>${escapeHtml(option)}</button>`).join('')}</div>`;
 }
 
 function sentenceExercise() {
-  const sentence = languageData().sentence;
+  const sentence = languageData().sentences[state.index];
   const scrambled = [...sentence.parts].sort((a, b) => b.localeCompare(a));
   return `<div class="prompt-label">BUILD THE SENTENCE</div>
     <h3 class="prompt-title">How do you say this in ${languageData().name}?</h3>
@@ -304,14 +540,62 @@ function sentenceExercise() {
     <p class="sentence-meaning">English <strong>${sentence.english}</strong></p>`;
 }
 
+function prepareBuilderRound() {
+  const target = languageData().builderWords[state.index];
+  const distractors = [...new Set(languageData().builderWords.flatMap((word) => word.pieces).filter((piece) => !target.pieces.includes(piece)))].slice(0, 4);
+  state.builderTiles = [...target.pieces, ...distractors].map((text, id) => ({ id, text })).sort(() => Math.random() - 0.5);
+  state.builderOrder = [];
+}
+
+function builderExercise() {
+  const target = languageData().builderWords[state.index];
+  return `<div class="prompt-label">PUT THE AKSHARAS IN ORDER</div>
+    <h3 class="prompt-title">Build the word for “${escapeHtml(target.meaning)}”.</h3>
+    <p class="prompt-hint">Join the sound-parts to reveal the word.</p>
+    <div class="builder-board empty" id="builder-board" lang="${document.documentElement.lang}"></div>
+    <div class="builder-tile-bank" lang="${document.documentElement.lang}">${state.builderTiles.map((tile) => `<button class="builder-tile" type="button" data-builder-tile="${tile.id}">${escapeHtml(tile.text)}</button>`).join('')}</div>
+    <div class="builder-tools"><span>${state.builderTiles.length} sound-parts</span><button class="text-button" id="reset-builder" type="button">Start over</button></div>`;
+}
+
+function bindBuilderTiles() {
+  byId('exercise-content').addEventListener('click', (event) => {
+    const tile = event.target.closest('[data-builder-tile]');
+    const remove = event.target.closest('[data-builder-remove]');
+    if (tile && !tile.classList.contains('used')) {
+      state.builderOrder.push(Number(tile.dataset.builderTile));
+      updateBuilderBoard();
+    } else if (remove) {
+      const position = Number(remove.dataset.builderRemove);
+      state.builderOrder.splice(position, 1);
+      updateBuilderBoard();
+    }
+  });
+  byId('reset-builder').addEventListener('click', () => {
+    state.builderOrder = [];
+    updateBuilderBoard();
+  });
+}
+
+function updateBuilderBoard() {
+  const board = byId('builder-board');
+  const selectedIds = new Set(state.builderOrder);
+  board.classList.toggle('empty', state.builderOrder.length === 0);
+  board.innerHTML = state.builderOrder.map((tileId, position) => {
+    const tile = state.builderTiles.find((item) => item.id === tileId);
+    return `<button class="builder-tile placed-tile" type="button" data-builder-remove="${position}" aria-label="Remove ${escapeHtml(tile.text)}">${escapeHtml(tile.text)}</button>`;
+  }).join('');
+  document.querySelectorAll('[data-builder-tile]').forEach((button) => button.classList.toggle('used', selectedIds.has(Number(button.dataset.builderTile))));
+}
+
 function renderActions() {
   const actions = byId('exercise-actions');
   if (state.locked) {
-    actions.innerHTML = `<span class="action-note">Nice work. Keep your rhythm.</span><button class="primary-button" id="continue-button">Continue <span aria-hidden="true">→</span></button>`;
+    const audio = state.mode === 'builder' ? `<button class="audio-button" type="button" data-speak-text="${escapeHtml(languageData().builderWords[state.index].native)}" data-speak-language="${state.language}" aria-label="Hear the completed word">▶ Hear word</button>` : '';
+    actions.innerHTML = `<span class="action-note">Nice work. Keep your rhythm.</span><div class="action-buttons">${audio}<button class="primary-button" id="continue-button">Continue <span aria-hidden="true">→</span></button></div>`;
     byId('continue-button').addEventListener('click', continueExercise);
     return;
   }
-  const note = state.mode === 'alphabet' ? 'Every stroke helps your hand remember.' : state.mode === 'words' ? 'Choose the best meaning.' : 'Arrange the words into a sentence.';
+  const note = state.mode === 'alphabet' ? 'Every stroke helps your hand remember.' : state.mode === 'words' ? 'Choose the best meaning.' : state.mode === 'builder' ? 'Join each sound-part to reveal a word.' : 'Arrange the words into a sentence.';
   actions.innerHTML = `<span class="action-note">${note}</span><button class="primary-button" id="check-button">Check answer</button>`;
   byId('check-button').addEventListener('click', checkAnswer);
 }
@@ -412,10 +696,17 @@ function checkAnswer() {
     document.querySelectorAll('[data-choice]').forEach((button) => { if (button.dataset.choice === correct) button.classList.add('correct'); });
     return markCorrect('That’s right. You’ve added a useful word.');
   }
-  const expected = languageData().sentence.parts;
+  if (state.mode === 'builder') {
+    const target = languageData().builderWords[state.index];
+    if (state.builderOrder.length !== target.pieces.length) return showFeedback('error', `Add all ${target.pieces.length} sound-parts first.`);
+    const answer = state.builderOrder.map((tileId) => state.builderTiles.find((tile) => tile.id === tileId).text).join('');
+    if (answer !== target.native) return showFeedback('error', 'Not quite. Move a sound-part or start over and try again.');
+    return markCorrect(`${target.native} (${target.roman}) means “${target.meaning}”.`);
+  }
+  const expected = languageData().sentences[state.index].parts;
   if (state.sentenceTiles.length !== expected.length) return showFeedback('error', 'Add all the words to complete the sentence.');
   if (state.sentenceTiles.map((tile) => tile.word).join(' ') !== expected.join(' ')) return showFeedback('error', 'The word order is not quite right. Move a tile and try again.');
-  return markCorrect(`Correct: ${languageData().sentence.roman}`);
+  return markCorrect(`Correct: ${languageData().sentences[state.index].roman}`);
 }
 
 function markCorrect(message) {
@@ -440,7 +731,7 @@ function showFeedback(type, text) {
 }
 
 function continueExercise() {
-  const count = state.mode === 'alphabet' ? alphabetPracticeEntries().length : 3;
+  const count = getExerciseCount();
   state.index = (state.index + 1) % count;
   state.selected = null;
   state.sentenceTiles = [];
@@ -466,10 +757,13 @@ function renderProgress() {
 }
 
 function speakPhrase() {
+  speakText(languageData().phrase.native, state.language);
+}
+
+function speakText(text, languageKey) {
   if (!('speechSynthesis' in window)) return showToast('Audio playback is not available in this browser.');
-  const utterance = new SpeechSynthesisUtterance(languageData().phrase.native);
-  const locale = { kannada: 'kn-IN', sanskrit: 'hi-IN', tamil: 'ta-IN', telugu: 'te-IN', malayalam: 'ml-IN' }[state.language];
-  utterance.lang = locale;
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = { kannada: 'kn-IN', sanskrit: 'sa-IN', tamil: 'ta-IN', telugu: 'te-IN', malayalam: 'ml-IN' }[languageKey];
   window.speechSynthesis.cancel();
   window.speechSynthesis.speak(utterance);
 }

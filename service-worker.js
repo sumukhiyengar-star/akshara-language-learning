@@ -1,4 +1,4 @@
-const CACHE_NAME = 'akshara-shell-v3';
+const CACHE_NAME = 'akshara-shell-v4';
 const APP_FILES = [
   './',
   './index.html',

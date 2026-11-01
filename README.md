@@ -16,12 +16,12 @@ The app is published at [https://sumukhiyengar-star.github.io/akshara-language-l
 
 ## Current scope
 
-- Three introductory character, vocabulary, and sentence exercises for each language.
 - Full beginner script charts for all five writing systems, including vowel signs and common special forms; selecting a chart item opens tracing practice.
+- Five syllable-composition word rounds and three sentence-building rounds per language, with English meanings and transliteration.
+- Browser speech playback for practiced characters and words when a matching system voice is available.
 - An offline mini dictionary with 26 common entries per language, searchable by English meaning, transliteration, or native script. No dictionary download or network lookup is required.
-- English meanings and transliteration guides alongside native scripts.
+- Optional online lookup and per-language Wiktionary downloads. Saved definitions stay in local storage and include Wiktionary attribution; coverage varies, so the bundled glossary remains available offline.
 - Pointer and touch support for tracing, answer feedback, XP, and a daily goal indicator.
-- Optional phrase playback using the browser's speech synthesis voices when available.
 - Android home-screen installation and offline app-shell caching when served over HTTPS.
 
-The dictionary and lesson content are starter sets, not exhaustive references. Speech voices and script fonts depend on the browser and operating system. Have fluent speakers review and expand the content before using it as formal instruction.
+The dictionary and lesson content are starter sets, not exhaustive references. Wiktionary may not have entries for every word. Speech voices and script fonts depend on the browser and operating system. Have fluent speakers review and expand the content before using it as formal instruction.
